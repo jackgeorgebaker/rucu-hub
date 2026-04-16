@@ -151,6 +151,7 @@
       font-size: 14.5px;
       font-weight: 500;
       color: var(--text);
+      line-height: 1.22;
     }
 
     .btn-sub {
@@ -158,6 +159,7 @@
       color: var(--text-muted);
       margin-top: 1px;
       font-weight: 400;
+      line-height: 1.35;
     }
 
     .btn-arrow {
@@ -209,6 +211,7 @@
       width: 20px;
       text-align: center;
       flex-shrink: 0;
+      margin-top: 1px;
     }
 
     .sub-text { display: flex; flex-direction: column; gap: 2px; }
@@ -218,11 +221,13 @@
       font-size: 13.5px;
       font-weight: 500;
       color: var(--text);
+      line-height: 1.22;
     }
 
     .sub-desc {
       font-size: 11.5px;
       color: var(--text-muted);
+      line-height: 1.35;
     }
 
     /* CU Central highlight card */
@@ -341,12 +346,13 @@
       </div>
     </div>
     <div class="central-body">
-      Every Thursday night we come together for worship, talks, testimonies, games, and drinks — then head to the pub after. Everyone welcome, whatever your background or faith.
+      We meet at 6pm to pray, gather at 7pm for Central, and head to Park House around 8:30pm for the pub after. Everyone welcome, whatever your background or faith.
     </div>
     <div class="central-detail">
       <div class="central-pill">📅 Every Thursday</div>
-      <div class="central-pill">🕖 7:15 start</div>
-      <div class="central-pill">🍺 Pub after ~8:15</div>
+      <div class="central-pill">🕕 6:00 prayer</div>
+      <div class="central-pill">🕖 7:00 Central</div>
+      <div class="central-pill">🍺 Park House after</div>
     </div>
   </div>
 
@@ -358,151 +364,14 @@
     <div class="btn-left">
       <div class="btn-icon red">🙋</div>
       <div>
-        <div class="btn-label">Volunteer for a role</div>
+        <div class="btn-label">Volunteer</div>
         <div class="btn-sub">Volunteer for a team and get involved</div>
       </div>
     </div>
     <span class="btn-arrow">›</span>
   </a>
 
-  <!-- One-off meeting -->
-  <a class="link-btn" href="TODO_PASTE_ONE_OFF_MEETING_FORM_LINK_HERE" target="_blank" rel="noopener">
-    <div class="btn-left">
-      <div class="btn-icon">📖</div>
-      <div>
-        <div class="btn-label">Request a one-off meeting with someone</div>
-        <div class="btn-sub">Chat, pray, or read the Bible together</div>
-      </div>
-    </div>
-    <span class="btn-arrow">›</span>
-  </a>
-
-  <!-- Ask a student to go to church -->
-  <button class="link-btn" onclick="toggle('churchinvite')">
-    <div class="btn-left">
-      <div class="btn-icon">⛪</div>
-      <div>
-        <div class="btn-label">Ask a student to go to church with you</div>
-        <div class="btn-sub">Choose a church and we’ll connect you</div>
-      </div>
-    </div>
-    <span class="btn-arrow" id="arrow-churchinvite">›</span>
-  </button>
-  <div class="sub-wrap" id="churchinvite">
-    <div class="sub-inner">
-      <a class="sub-btn" href="https://www.careybaptistchurch.org.uk/" target="_blank" rel="noopener">
-        <span class="sub-icon">📍</span>
-        <div class="sub-text">
-          <div class="sub-title">Carey Baptist Church</div>
-          <div class="sub-desc">Central Reading</div>
-        </div>
-      </a>
-      <a class="sub-btn" href="https://www.readingfamilychurch.org.uk/" target="_blank" rel="noopener">
-        <span class="sub-icon">📍</span>
-        <div class="sub-text">
-          <div class="sub-title">Reading Family Church</div>
-          <div class="sub-desc">Contemporary</div>
-        </div>
-      </a>
-      <a class="sub-btn" href="https://wycliffe.church/" target="_blank" rel="noopener">
-        <span class="sub-icon">📍</span>
-        <div class="sub-text">
-          <div class="sub-title">Wycliffe Baptist Church</div>
-          <div class="sub-desc">East Reading</div>
-        </div>
-      </a>
-      <a class="sub-btn" href="https://www.thegreenhousehurst.co.uk/" target="_blank" rel="noopener">
-        <span class="sub-icon">📍</span>
-        <div class="sub-text">
-          <div class="sub-title">The Greenhouse Church</div>
-          <div class="sub-desc">Hurst / Reading</div>
-        </div>
-      </a>
-    </div>
-  </div>
-
-  <!-- Feedback -->
-  <a class="link-btn" href="https://forms.office.com/e/XYBdQF3yK6" target="_blank" rel="noopener">
-    <div class="btn-left">
-      <div class="btn-icon">💬</div>
-      <div>
-        <div class="btn-label">Give feedback</div>
-        <div class="btn-sub">Tell us what you think</div>
-      </div>
-    </div>
-    <span class="btn-arrow">›</span>
-  </a>
-
-  <!-- Connect section -->
-  <div class="section-label">Connect</div>
-
-  <!-- Socials -->
-  <button class="link-btn" onclick="toggle('socials')">
-    <div class="btn-left">
-      <div class="btn-icon">📲</div>
-      <div>
-        <div class="btn-label">Follow the CU</div>
-        <div class="btn-sub">Instagram, Facebook, Twitter, TikTok and WhatsApp</div>
-      </div>
-    </div>
-    <span class="btn-arrow" id="arrow-socials">›</span>
-  </button>
-  <div class="sub-wrap" id="socials">
-    <div class="sub-inner">
-      <a class="sub-btn" href="https://www.instagram.com/readingunicu/" target="_blank" rel="noopener">
-        <span class="sub-icon">📸</span>
-        <div class="sub-text">
-          <div class="sub-title">Instagram</div>
-          <div class="sub-desc">@readingunicu</div>
-        </div>
-      </a>
-      <a class="sub-btn" href="https://www.facebook.com/readingunicu" target="_blank" rel="noopener">
-        <span class="sub-icon">👥</span>
-        <div class="sub-text">
-          <div class="sub-title">Facebook</div>
-          <div class="sub-desc">Reading Uni CU</div>
-        </div>
-      </a>
-      <a class="sub-btn" href="TODO_PASTE_TWITTER_LINK_HERE" target="_blank" rel="noopener">
-        <span class="sub-icon">𝕏</span>
-        <div class="sub-text">
-          <div class="sub-title">Twitter</div>
-          <div class="sub-desc">Follow the latest updates</div>
-        </div>
-      </a>
-      <a class="sub-btn" href="https://www.tiktok.com/@readingunicu" target="_blank" rel="noopener">
-        <span class="sub-icon">🎵</span>
-        <div class="sub-text">
-          <div class="sub-title">TikTok</div>
-          <div class="sub-desc">@readingunicu</div>
-        </div>
-      </a>
-      <a class="sub-btn" href="https://chat.whatsapp.com/CfKpPWJ9PbTDdEzFWzJpbp?mode=gi_t" target="_blank" rel="noopener">
-        <span class="sub-icon">💬</span>
-        <div class="sub-text">
-          <div class="sub-title">WhatsApp group</div>
-          <div class="sub-desc">Join the main chat</div>
-        </div>
-      </a>
-    </div>
-  </div>
-
-  <!-- Small World Cafe -->
-  <a class="link-btn" href="https://www.instagram.com/small_world_cafe/" target="_blank" rel="noopener">
-    <div class="btn-left">
-      <div class="btn-icon">☕</div>
-      <div>
-        <div class="btn-label">Small World Cafe</div>
-        <div class="btn-sub">Our international community on campus</div>
-      </div>
-    </div>
-    <span class="btn-arrow">›</span>
-  </a>
-
-  <!-- Explore section -->
-  <div class="section-label">Explore</div>
-
-  <!-- Churches -->
+  <!-- Local churches -->
   <button class="link-btn" onclick="toggle('churches')">
     <div class="btn-left">
       <div class="btn-icon">⛪</div>
@@ -546,7 +415,77 @@
     </div>
   </div>
 
-  <!-- Resources -->
+  <!-- Ask a student to go to church -->
+  <a class="link-btn" href="TODO_PASTE_CHURCH_INVITE_LINK_HERE" target="_blank" rel="noopener">
+    <div class="btn-left">
+      <div class="btn-icon">🙏</div>
+      <div>
+        <div class="btn-label">Ask a student to go to church with you</div>
+        <div class="btn-sub">Choose a student and we’ll help you connect</div>
+      </div>
+    </div>
+    <span class="btn-arrow">›</span>
+  </a>
+
+  <!-- Feedback -->
+  <a class="link-btn" href="https://forms.office.com/e/XYBdQF3yK6" target="_blank" rel="noopener">
+    <div class="btn-left">
+      <div class="btn-icon">💬</div>
+      <div>
+        <div class="btn-label">Give feedback</div>
+        <div class="btn-sub">Tell us what you think</div>
+      </div>
+    </div>
+    <span class="btn-arrow">›</span>
+  </a>
+
+  <!-- Connect section -->
+  <div class="section-label">Connect</div>
+
+  <!-- Socials -->
+  <button class="link-btn" onclick="toggle('socials')">
+    <div class="btn-left">
+      <div class="btn-icon">📲</div>
+      <div>
+        <div class="btn-label">Follow the CU</div>
+        <div class="btn-sub">Instagram, Facebook, TikTok and WhatsApp</div>
+      </div>
+    </div>
+    <span class="btn-arrow" id="arrow-socials">›</span>
+  </button>
+  <div class="sub-wrap" id="socials">
+    <div class="sub-inner">
+      <a class="sub-btn" href="https://www.instagram.com/readingunicu/" target="_blank" rel="noopener">
+        <span class="sub-icon">📸</span>
+        <div class="sub-text">
+          <div class="sub-title">Instagram</div>
+          <div class="sub-desc">@readingunicu</div>
+        </div>
+      </a>
+      <a class="sub-btn" href="https://www.facebook.com/readingunicu" target="_blank" rel="noopener">
+        <span class="sub-icon">👥</span>
+        <div class="sub-text">
+          <div class="sub-title">Facebook</div>
+          <div class="sub-desc">Reading Uni CU</div>
+        </div>
+      </a>
+      <a class="sub-btn" href="https://www.tiktok.com/@readingunicu" target="_blank" rel="noopener">
+        <span class="sub-icon">🎵</span>
+        <div class="sub-text">
+          <div class="sub-title">TikTok</div>
+          <div class="sub-desc">@readingunicu</div>
+        </div>
+      </a>
+      <a class="sub-btn" href="https://chat.whatsapp.com/CfKpPWJ9PbTDdEzFWzJpbp?mode=gi_t" target="_blank" rel="noopener">
+        <span class="sub-icon">💬</span>
+        <div class="sub-text">
+          <div class="sub-title">WhatsApp group</div>
+          <div class="sub-desc">Join the main chat</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
   <button class="link-btn" onclick="toggle('resources')">
     <div class="btn-left">
       <div class="btn-icon">📚</div>
@@ -589,6 +528,18 @@
       </a>
     </div>
   </div>
+
+  <!-- Small World Cafe -->
+  <a class="link-btn" href="https://www.instagram.com/small_world_cafe/" target="_blank" rel="noopener">
+    <div class="btn-left">
+      <div class="btn-icon">☕</div>
+      <div>
+        <div class="btn-label">Small World Cafe</div>
+        <div class="btn-sub">Our international community on campus</div>
+      </div>
+    </div>
+    <span class="btn-arrow">›</span>
+  </a>
 
   <div class="footer">readingunicu.co.uk</div>
 
