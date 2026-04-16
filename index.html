@@ -91,7 +91,7 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--text-muted);
-      padding: 6px 4px 2px;
+      padding: 6px 0 2px;
       margin-top: 8px;
     }
 
@@ -143,8 +143,8 @@
     }
 
     .btn-icon.red {
-      background: #fdf0f0;
-      border-color: #f0d0d0;
+      background: #f6efe8;
+      border-color: #e2d4c4;
     }
 
     .btn-label {
@@ -281,18 +281,103 @@
       display: flex;
       gap: 16px;
       margin-top: 12px;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
     }
+
+    .central-detail::-webkit-scrollbar { display: none; }
 
     .central-pill {
       background: rgba(255,255,255,0.15);
       border-radius: 20px;
-      padding: 5px 12px;
-      font-size: 12px;
+      padding: 4px 9px;
+      font-size: 10.5px;
       font-weight: 500;
       display: flex;
       align-items: center;
       gap: 5px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .term-schedule {
+      width: 100%;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 7px 9px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      animation: fadeUp 0.4s ease both;
+    }
+
+    .term-schedule-title {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .term-schedule-note {
+      font-size: 9px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .term-schedule-track {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .term-schedule-track::-webkit-scrollbar { display: none; }
+
+    .term-item {
+      min-width: 156px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 6px 8px;
+      flex: 0 0 auto;
+      text-decoration: none;
+      color: var(--text);
+      transition: background 0.15s, border-color 0.15s, transform 0.15s;
+      display: block;
+    }
+
+    .term-item:hover {
+      background: var(--hover);
+      border-color: #d8d1c6;
+      transform: translateY(-1px);
+    }
+
+    .term-date {
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--rucu-red);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .term-session {
+      font-size: 11px;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .term-location {
+      font-size: 10px;
+      color: var(--text-muted);
+      line-height: 1.2;
     }
 
     /* Animation delays */
@@ -346,13 +431,60 @@
       </div>
     </div>
     <div class="central-body">
-      We meet at 6pm to pray, gather at 7pm for Central, and head to Park House around 8:30pm for the pub after. Everyone welcome, whatever your background or faith.
+      Every Thursday night we come together for worship, talks, testimonies, games, and drinks — then head to the pub after. Everyone welcome, whatever your background or faith.
     </div>
     <div class="central-detail">
-      <div class="central-pill">📅 Every Thursday</div>
-      <div class="central-pill">🕕 6:00 prayer</div>
-      <div class="central-pill">🕖 7:00 Central</div>
-      <div class="central-pill">🍺 Park House after</div>
+      <div class="central-pill">📅 Thu</div>
+      <div class="central-pill">🕕 6 prayer</div>
+      <div class="central-pill">🕖 7 Central</div>
+      <div class="central-pill">🍺 Park House</div>
+    </div>
+  </div>
+
+  <div class="term-schedule">
+    <div class="term-schedule-title">This term</div>
+    <div class="term-schedule-note">Tap a card to open maps.</div>
+    <div class="term-schedule-track">
+      <a class="term-item" href="https://share.google/kIp0Uh2RUx9ZLGJ7o" target="_blank" rel="noopener">
+        <div class="term-date">23.04</div>
+        <div class="term-session">Small World Cafe Takeover! (International Night)</div>
+        <div class="term-location">Location: Palmer 109</div>
+      </a>
+      <a class="term-item" href="https://share.google/kIp0Uh2RUx9ZLGJ7o" target="_blank" rel="noopener">
+        <div class="term-date">30.04</div>
+        <div class="term-session">Finding Strength in God: David and Goliath</div>
+        <div class="term-location">Location: Palmer 109</div>
+      </a>
+      <a class="term-item" href="https://share.google/kIp0Uh2RUx9ZLGJ7o" target="_blank" rel="noopener">
+        <div class="term-date">07.05</div>
+        <div class="term-session">Gospel Over Gossip: David's persecution</div>
+        <div class="term-location">Location: Palmer 109</div>
+      </a>
+      <a class="term-item" href="https://share.google/kIp0Uh2RUx9ZLGJ7o" target="_blank" rel="noopener">
+        <div class="term-date">14.05</div>
+        <div class="term-session">The Right to Kill: David and Saul</div>
+        <div class="term-location">Location: Palmer 109</div>
+      </a>
+      <a class="term-item" href="https://share.google/jvRvToSr5hkAb1Ac8" target="_blank" rel="noopener">
+        <div class="term-date">21.05</div>
+        <div class="term-session">Lust and Biblical Love: David and Bathsheba</div>
+        <div class="term-location">Location: ECF</div>
+      </a>
+      <a class="term-item" href="https://share.google/jvRvToSr5hkAb1Ac8" target="_blank" rel="noopener">
+        <div class="term-date">28.05</div>
+        <div class="term-session">Getting Closer to God: David's prayer and worship</div>
+        <div class="term-location">Location: ECF</div>
+      </a>
+      <a class="term-item" href="https://share.google/jvRvToSr5hkAb1Ac8" target="_blank" rel="noopener">
+        <div class="term-date">04.06</div>
+        <div class="term-session">Building Roots in God: David's devotion</div>
+        <div class="term-location">Location: ECF</div>
+      </a>
+      <a class="term-item" href="https://share.google/jvRvToSr5hkAb1Ac8" target="_blank" rel="noopener">
+        <div class="term-date">11.06</div>
+        <div class="term-session">Leavers Central!</div>
+        <div class="term-location">Location: ECF</div>
+      </a>
     </div>
   </div>
 
@@ -421,7 +553,7 @@
       <div class="btn-icon">🙏</div>
       <div>
         <div class="btn-label">Ask a student to go to church with you</div>
-        <div class="btn-sub">Choose a student and we’ll help you connect</div>
+        <div class="btn-sub">Choose a church and we'll help you connect</div>
       </div>
     </div>
     <span class="btn-arrow">›</span>
@@ -534,7 +666,7 @@
     <div class="btn-left">
       <div class="btn-icon">☕</div>
       <div>
-        <div class="btn-label">Small World Cafe</div>
+        <div class="btn-label">Small World Cafe Instagram</div>
         <div class="btn-sub">Our international community on campus</div>
       </div>
     </div>
