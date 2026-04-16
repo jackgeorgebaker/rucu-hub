@@ -63,6 +63,8 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center center;
+      display: block;
     }
 
     .handle {
@@ -101,7 +103,7 @@
       border-radius: var(--radius);
       padding: 14px 18px;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
       cursor: pointer;
       text-decoration: none;
@@ -123,6 +125,8 @@
       display: flex;
       align-items: center;
       gap: 13px;
+      min-width: 0;
+      flex: 1;
     }
 
     .btn-icon {
@@ -161,6 +165,7 @@
       color: var(--text-muted);
       transition: transform 0.2s;
       flex-shrink: 0;
+      margin-top: 2px;
     }
 
     .btn-arrow.open { transform: rotate(90deg); }
@@ -189,7 +194,7 @@
       border-radius: 11px;
       padding: 12px 16px;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 12px;
       cursor: pointer;
       text-decoration: none;
@@ -207,6 +212,7 @@
     }
 
     .sub-text { display: flex; flex-direction: column; gap: 2px; }
+    .sub-text { min-width: 0; }
 
     .sub-title {
       font-size: 13.5px;
@@ -319,7 +325,7 @@
   <!-- Header -->
   <div class="header">
     <div class="logo-wrap">
-      <img src="images.png" alt="RUCU Logo">
+      <img src="images-2.png" alt="RUCU Logo">
     </div>
     <div class="handle">@readingunicu</div>
     <div class="bio">A campus-wide community making the love and truth of Jesus known</div>
@@ -348,65 +354,75 @@
   <div class="section-label">Get involved</div>
 
   <!-- Volunteer -->
-  <!-- TODO: Replace href with your Google Form link for volunteering -->
-  <!-- Set up email notifications in Google Forms so your team is alerted -->
-  <a class="link-btn" href="TODO_PASTE_VOLUNTEER_GOOGLE_FORM_LINK_HERE" target="_blank" rel="noopener">
+  <a class="link-btn" href="https://chat.whatsapp.com/CfKpPWJ9PbTDdEzFWzJpbp?mode=gi_t" target="_blank" rel="noopener">
     <div class="btn-left">
       <div class="btn-icon red">🙋</div>
       <div>
         <div class="btn-label">Volunteer for a role</div>
-        <div class="btn-sub">Join a team and get involved</div>
+        <div class="btn-sub">Volunteer for a team and get involved</div>
       </div>
     </div>
     <span class="btn-arrow">›</span>
   </a>
 
-  <!-- 1-to-1s -->
-  <!-- TODO: Each sub-button needs its own Google Form link — one per option -->
-  <!-- Enable email notifications on each form -->
-  <button class="link-btn" onclick="toggle('onetoone')">
+  <!-- One-off meeting -->
+  <a class="link-btn" href="TODO_PASTE_ONE_OFF_MEETING_FORM_LINK_HERE" target="_blank" rel="noopener">
     <div class="btn-left">
       <div class="btn-icon">📖</div>
       <div>
-        <div class="btn-label">Request a 1-to-1 or buddy</div>
-        <div class="btn-sub">Connect with someone from the CU</div>
+        <div class="btn-label">Request a one-off meeting with someone</div>
+        <div class="btn-sub">Chat, pray, or read the Bible together</div>
       </div>
     </div>
-    <span class="btn-arrow" id="arrow-onetoone">›</span>
+    <span class="btn-arrow">›</span>
+  </a>
+
+  <!-- Ask a student to go to church -->
+  <button class="link-btn" onclick="toggle('churchinvite')">
+    <div class="btn-left">
+      <div class="btn-icon">⛪</div>
+      <div>
+        <div class="btn-label">Ask a student to go to church with you</div>
+        <div class="btn-sub">Choose a church and we’ll connect you</div>
+      </div>
+    </div>
+    <span class="btn-arrow" id="arrow-churchinvite">›</span>
   </button>
-  <div class="sub-wrap" id="onetoone">
+  <div class="sub-wrap" id="churchinvite">
     <div class="sub-inner">
-      <!-- TODO: Replace href with your "Request a 1-to-1" Google Form link -->
-      <a class="sub-btn" href="TODO_PASTE_1TO1_GOOGLE_FORM_LINK_HERE" target="_blank" rel="noopener">
-        <span class="sub-icon">👤</span>
+      <a class="sub-btn" href="https://www.careybaptistchurch.org.uk/" target="_blank" rel="noopener">
+        <span class="sub-icon">📍</span>
         <div class="sub-text">
-          <div class="sub-title">Request a 1-to-1</div>
-          <div class="sub-desc">Chat faith with someone over coffee</div>
+          <div class="sub-title">Carey Baptist Church</div>
+          <div class="sub-desc">Central Reading</div>
         </div>
       </a>
-      <!-- TODO: Replace href with your "Read the Bible together" Google Form link -->
-      <a class="sub-btn" href="TODO_PASTE_BIBLE_READING_GOOGLE_FORM_LINK_HERE" target="_blank" rel="noopener">
-        <span class="sub-icon">📕</span>
+      <a class="sub-btn" href="https://www.readingfamilychurch.org.uk/" target="_blank" rel="noopener">
+        <span class="sub-icon">📍</span>
         <div class="sub-text">
-          <div class="sub-title">Read the Bible with someone</div>
-          <div class="sub-desc">We'll find you a reading partner</div>
+          <div class="sub-title">Reading Family Church</div>
+          <div class="sub-desc">Contemporary</div>
         </div>
       </a>
-      <!-- TODO: Replace href with your "Find a buddy" Google Form link -->
-      <a class="sub-btn" href="TODO_PASTE_BUDDY_GOOGLE_FORM_LINK_HERE" target="_blank" rel="noopener">
-        <span class="sub-icon">🤝</span>
+      <a class="sub-btn" href="https://wycliffe.church/" target="_blank" rel="noopener">
+        <span class="sub-icon">📍</span>
         <div class="sub-text">
-          <div class="sub-title">Find a buddy</div>
-          <div class="sub-desc">Someone to do CU life with</div>
+          <div class="sub-title">Wycliffe Baptist Church</div>
+          <div class="sub-desc">East Reading</div>
+        </div>
+      </a>
+      <a class="sub-btn" href="https://www.thegreenhousehurst.co.uk/" target="_blank" rel="noopener">
+        <span class="sub-icon">📍</span>
+        <div class="sub-text">
+          <div class="sub-title">The Greenhouse Church</div>
+          <div class="sub-desc">Hurst / Reading</div>
         </div>
       </a>
     </div>
   </div>
 
   <!-- Feedback -->
-  <!-- TODO: Replace href with your feedback Google Form link -->
-  <!-- Optional: pipe responses to Discord via a webhook for the team to see -->
-  <a class="link-btn" href="TODO_PASTE_FEEDBACK_GOOGLE_FORM_LINK_HERE" target="_blank" rel="noopener">
+  <a class="link-btn" href="https://forms.office.com/e/XYBdQF3yK6" target="_blank" rel="noopener">
     <div class="btn-left">
       <div class="btn-icon">💬</div>
       <div>
@@ -425,8 +441,8 @@
     <div class="btn-left">
       <div class="btn-icon">📲</div>
       <div>
-        <div class="btn-label">Follow us</div>
-        <div class="btn-sub">Instagram, Facebook, TikTok & more</div>
+        <div class="btn-label">Follow the CU</div>
+        <div class="btn-sub">Instagram, Facebook, Twitter, TikTok and WhatsApp</div>
       </div>
     </div>
     <span class="btn-arrow" id="arrow-socials">›</span>
@@ -447,6 +463,13 @@
           <div class="sub-desc">Reading Uni CU</div>
         </div>
       </a>
+      <a class="sub-btn" href="TODO_PASTE_TWITTER_LINK_HERE" target="_blank" rel="noopener">
+        <span class="sub-icon">𝕏</span>
+        <div class="sub-text">
+          <div class="sub-title">Twitter</div>
+          <div class="sub-desc">Follow the latest updates</div>
+        </div>
+      </a>
       <a class="sub-btn" href="https://www.tiktok.com/@readingunicu" target="_blank" rel="noopener">
         <span class="sub-icon">🎵</span>
         <div class="sub-text">
@@ -454,10 +477,7 @@
           <div class="sub-desc">@readingunicu</div>
         </div>
       </a>
-      <!-- TODO: Replace href with your WhatsApp community group invite link -->
-      <!-- In WhatsApp: open group → tap group name → Invite via link → Copy link -->
-      <!-- Format: https://chat.whatsapp.com/XXXXXXXXXXXXXXXXXX -->
-      <a class="sub-btn" href="TODO_PASTE_WHATSAPP_COMMUNITY_INVITE_LINK_HERE" target="_blank" rel="noopener">
+      <a class="sub-btn" href="https://chat.whatsapp.com/CfKpPWJ9PbTDdEzFWzJpbp?mode=gi_t" target="_blank" rel="noopener">
         <span class="sub-icon">💬</span>
         <div class="sub-text">
           <div class="sub-title">WhatsApp group</div>
@@ -468,26 +488,12 @@
   </div>
 
   <!-- Small World Cafe -->
-  <!-- TODO: Replace href with the Small World Cafe Instagram link -->
-  <a class="link-btn" href="TODO_PASTE_SMALL_WORLD_CAFE_INSTAGRAM_LINK_HERE" target="_blank" rel="noopener">
+  <a class="link-btn" href="https://www.instagram.com/small_world_cafe/" target="_blank" rel="noopener">
     <div class="btn-left">
       <div class="btn-icon">☕</div>
       <div>
         <div class="btn-label">Small World Cafe</div>
-        <div class="btn-sub">Our campus café — follow on Instagram</div>
-      </div>
-    </div>
-    <span class="btn-arrow">›</span>
-  </a>
-
-  <!-- Chinese Fellowship -->
-  <!-- TODO: Replace href with the RUCU Chinese Fellowship link (Instagram / WeChat / website) -->
-  <a class="link-btn" href="TODO_PASTE_CHINESE_FELLOWSHIP_LINK_HERE" target="_blank" rel="noopener">
-    <div class="btn-left">
-      <div class="btn-icon">🌏</div>
-      <div>
-        <div class="btn-label">RUCU Chinese Fellowship</div>
-        <div class="btn-sub">中文团契 — welcome everyone</div>
+        <div class="btn-sub">Our international community on campus</div>
       </div>
     </div>
     <span class="btn-arrow">›</span>
@@ -509,20 +515,32 @@
   </button>
   <div class="sub-wrap" id="churches">
     <div class="sub-inner">
-      <!-- TODO: Replace href with your local churches list (Notion / Google Doc / separate page) -->
-      <a class="sub-btn" href="TODO_PASTE_CHURCHES_LIST_LINK_HERE" target="_blank" rel="noopener">
-        <span class="sub-icon">📋</span>
+      <a class="sub-btn" href="https://www.careybaptistchurch.org.uk/" target="_blank" rel="noopener">
+        <span class="sub-icon">📍</span>
         <div class="sub-text">
-          <div class="sub-title">View all local churches</div>
-          <div class="sub-desc">All denominations welcome</div>
+          <div class="sub-title">Carey Baptist Church</div>
+          <div class="sub-desc">Central Reading</div>
         </div>
       </a>
-      <!-- ✅ WIRED: Christianity Explored — swap for another site if preferred -->
-      <a class="sub-btn" href="https://www.christianityexplored.org/" target="_blank" rel="noopener">
-        <span class="sub-icon">ℹ️</span>
+      <a class="sub-btn" href="https://www.readingfamilychurch.org.uk/" target="_blank" rel="noopener">
+        <span class="sub-icon">📍</span>
         <div class="sub-text">
-          <div class="sub-title">Find out more about faith</div>
-          <div class="sub-desc">Questions, resources, further reading</div>
+          <div class="sub-title">Reading Family Church</div>
+          <div class="sub-desc">Contemporary</div>
+        </div>
+      </a>
+      <a class="sub-btn" href="https://wycliffe.church/" target="_blank" rel="noopener">
+        <span class="sub-icon">📍</span>
+        <div class="sub-text">
+          <div class="sub-title">Wycliffe Baptist Church</div>
+          <div class="sub-desc">East Reading</div>
+        </div>
+      </a>
+      <a class="sub-btn" href="https://www.thegreenhousehurst.co.uk/" target="_blank" rel="noopener">
+        <span class="sub-icon">📍</span>
+        <div class="sub-text">
+          <div class="sub-title">The Greenhouse Church</div>
+          <div class="sub-desc">Hurst / Reading</div>
         </div>
       </a>
     </div>
@@ -534,35 +552,39 @@
       <div class="btn-icon">📚</div>
       <div>
         <div class="btn-label">CU resources</div>
-        <div class="btn-sub">Talks, playlists & more</div>
+        <div class="btn-sub">Faith resources and reading</div>
       </div>
     </div>
     <span class="btn-arrow" id="arrow-resources">›</span>
   </button>
   <div class="sub-wrap" id="resources">
     <div class="sub-inner">
-      <!-- TODO: Replace href with your CU library link (YouTube playlist / Notion / Google Drive) -->
-      <a class="sub-btn" href="TODO_PASTE_CU_LIBRARY_LINK_HERE" target="_blank" rel="noopener">
-        <span class="sub-icon">🏛️</span>
-        <div class="sub-text">
-          <div class="sub-title">CU library</div>
-          <div class="sub-desc">Talks, videos & reading</div>
-        </div>
-      </a>
-      <!-- ✅ WIRED: Bible Society free resources — swap for Good Book Co. if preferred -->
-      <a class="sub-btn" href="https://www.biblesociety.org.uk/products/free-resources/" target="_blank" rel="noopener">
+      <a class="sub-btn" href="https://www.christianity.org.uk/request-a-gospel" target="_blank" rel="noopener">
         <span class="sub-icon">📕</span>
         <div class="sub-text">
-          <div class="sub-title">Request a free Gospel</div>
-          <div class="sub-desc">Get a copy sent to you</div>
+          <div class="sub-title">Get a Free Gospel in the mail</div>
+          <div class="sub-desc">UK</div>
         </div>
       </a>
-      <!-- ✅ WIRED: Spotify -->
-      <a class="sub-btn" href="https://open.spotify.com/user/s93er7wp7xk7qdbuxtw58t2we" target="_blank" rel="noopener">
-        <span class="sub-icon">🎧</span>
+      <a class="sub-btn" href="https://www.uncover.org.uk/john" target="_blank" rel="noopener">
+        <span class="sub-icon">🔍</span>
         <div class="sub-text">
-          <div class="sub-title">RUCU Spotify</div>
-          <div class="sub-desc">Worship playlists</div>
+          <div class="sub-title">Investigate Jesus for yourself</div>
+          <div class="sub-desc">Uncover</div>
+        </div>
+      </a>
+      <a class="sub-btn" href="https://www.christianityexplored.org/explore-online/" target="_blank" rel="noopener">
+        <span class="sub-icon">🎥</span>
+        <div class="sub-text">
+          <div class="sub-title">Watch: What is Christianity about?</div>
+          <div class="sub-desc">Online introduction</div>
+        </div>
+      </a>
+      <a class="sub-btn" href="https://twowaystolive.com/" target="_blank" rel="noopener">
+        <span class="sub-icon">✝</span>
+        <div class="sub-text">
+          <div class="sub-title">The Gospel in 2 Minutes</div>
+          <div class="sub-desc">Two Ways to Live</div>
         </div>
       </a>
     </div>
