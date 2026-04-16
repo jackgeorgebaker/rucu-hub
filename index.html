@@ -385,10 +385,8 @@
 
     .central-ticket {
       margin-top: 10px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 10px;
+      width: 100%;
+      padding: 5px 0;
       border-radius: 999px;
       font-size: 10px;
       font-weight: 500;
@@ -396,6 +394,27 @@
       background: rgba(255,255,255,0.11);
       border: 1px solid rgba(255,255,255,0.18);
       line-height: 1;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .central-ticket-track {
+      display: inline-block;
+      padding-left: 100%;
+      animation: centralTicker 16s linear infinite;
+      will-change: transform;
+    }
+
+    @keyframes centralTicker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-100%); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .central-ticket-track {
+        animation: none;
+        padding-left: 10px;
+      }
     }
 
     /* Animation delays */
@@ -452,12 +471,12 @@
       Every Thursday night we come together for worship, talks, testimonies, games, and drinks — then head to the pub after. Everyone welcome, whatever your background or faith.
     </div>
     <div class="central-detail">
-      <div class="central-pill">📅 Thu</div>
-      <div class="central-pill">🕕 6 prayer</div>
-      <div class="central-pill">🕖 7 Central</div>
-      <div class="central-pill">🍺 Park House</div>
+      <div class="central-pill">📅 Every Thursday</div>
+      <div class="central-pill">🕕 6:00 prayer</div>
+      <div class="central-pill">🕖 7:00 start</div>
+      <div class="central-pill">🍺 8:30 Park House</div>
     </div>
-    <div class="central-ticket" id="next-central-ticket">🎫 Next CU Central</div>
+    <div class="central-ticket" id="next-central-ticket"><span class="central-ticket-track" id="next-central-ticket-text">🎫 Next CU Central</span></div>
   </div>
 
   <div class="term-schedule">
@@ -771,10 +790,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (nextCard) {
-    const ticket = document.getElementById('next-central-ticket');
+    const ticketText = document.getElementById('next-central-ticket-text');
     const dateLabel = nextCard.querySelector('.term-date')?.textContent || formatTermDate(nextDate);
-    if (ticket) {
-      ticket.textContent = `🎫 Next CU Central: ${dateLabel}`;
+    if (ticketText) {
+      ticketText.textContent = `🎫 Next CU Central: ${dateLabel} • 6:00 prayer • 7:00 start • Park House after`;
     }
 
     requestAnimationFrame(() => {
