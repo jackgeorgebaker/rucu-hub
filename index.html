@@ -86,13 +86,13 @@
     /* Section labels */
     .section-label {
       width: 100%;
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 600;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       color: var(--text-muted);
-      padding: 6px 0 2px;
-      margin-top: 8px;
+      padding: 4px 0 1px;
+      margin-top: 6px;
     }
 
     /* Buttons */
@@ -123,8 +123,8 @@
 
     .btn-left {
       display: flex;
-      align-items: center;
-      gap: 13px;
+      align-items: flex-start;
+      gap: 12px;
       min-width: 0;
       flex: 1;
     }
@@ -140,6 +140,7 @@
       justify-content: center;
       font-size: 17px;
       flex-shrink: 0;
+      margin-top: 1px;
     }
 
     .btn-icon.red {
@@ -335,6 +336,7 @@
       padding-bottom: 2px;
       scrollbar-width: none;
       -ms-overflow-style: none;
+      scroll-snap-type: x proximity;
     }
 
     .term-schedule-track::-webkit-scrollbar { display: none; }
@@ -350,6 +352,7 @@
       color: var(--text);
       transition: background 0.15s, border-color 0.15s, transform 0.15s;
       display: block;
+      scroll-snap-align: start;
     }
 
     .term-item:hover {
@@ -378,6 +381,21 @@
       font-size: 10px;
       color: var(--text-muted);
       line-height: 1.2;
+    }
+
+    .central-ticket {
+      margin-top: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.92);
+      background: rgba(255,255,255,0.11);
+      border: 1px solid rgba(255,255,255,0.18);
+      line-height: 1;
     }
 
     /* Animation delays */
@@ -439,49 +457,50 @@
       <div class="central-pill">🕖 7 Central</div>
       <div class="central-pill">🍺 Park House</div>
     </div>
+    <div class="central-ticket" id="next-central-ticket">🎫 Next CU Central</div>
   </div>
 
   <div class="term-schedule">
     <div class="term-schedule-title">This term</div>
     <div class="term-schedule-note">Tap a card to open maps.</div>
     <div class="term-schedule-track">
-      <a class="term-item" href="https://share.google/kIp0Uh2RUx9ZLGJ7o" target="_blank" rel="noopener">
-        <div class="term-date">23.04</div>
+      <a class="term-item" href="https://maps.app.goo.gl/EnRPxZdhCygHJ8WW6" target="_blank" rel="noopener" data-date="2026-04-23">
+        <div class="term-date">23 Apr 2026</div>
         <div class="term-session">Small World Cafe Takeover! (International Night)</div>
         <div class="term-location">Location: Palmer 109</div>
       </a>
-      <a class="term-item" href="https://share.google/kIp0Uh2RUx9ZLGJ7o" target="_blank" rel="noopener">
-        <div class="term-date">30.04</div>
+      <a class="term-item" href="https://maps.app.goo.gl/EnRPxZdhCygHJ8WW6" target="_blank" rel="noopener" data-date="2026-04-30">
+        <div class="term-date">30 Apr 2026</div>
         <div class="term-session">Finding Strength in God: David and Goliath</div>
         <div class="term-location">Location: Palmer 109</div>
       </a>
-      <a class="term-item" href="https://share.google/kIp0Uh2RUx9ZLGJ7o" target="_blank" rel="noopener">
-        <div class="term-date">07.05</div>
+      <a class="term-item" href="https://maps.app.goo.gl/EnRPxZdhCygHJ8WW6" target="_blank" rel="noopener" data-date="2026-05-07">
+        <div class="term-date">7 May 2026</div>
         <div class="term-session">Gospel Over Gossip: David's persecution</div>
         <div class="term-location">Location: Palmer 109</div>
       </a>
-      <a class="term-item" href="https://share.google/kIp0Uh2RUx9ZLGJ7o" target="_blank" rel="noopener">
-        <div class="term-date">14.05</div>
+      <a class="term-item" href="https://maps.app.goo.gl/EnRPxZdhCygHJ8WW6" target="_blank" rel="noopener" data-date="2026-05-14">
+        <div class="term-date">14 May 2026</div>
         <div class="term-session">The Right to Kill: David and Saul</div>
         <div class="term-location">Location: Palmer 109</div>
       </a>
-      <a class="term-item" href="https://share.google/jvRvToSr5hkAb1Ac8" target="_blank" rel="noopener">
-        <div class="term-date">21.05</div>
+      <a class="term-item" href="https://maps.app.goo.gl/Jocc3cUs3HUDkJFA9" target="_blank" rel="noopener" data-date="2026-05-21">
+        <div class="term-date">21 May 2026</div>
         <div class="term-session">Lust and Biblical Love: David and Bathsheba</div>
         <div class="term-location">Location: ECF</div>
       </a>
-      <a class="term-item" href="https://share.google/jvRvToSr5hkAb1Ac8" target="_blank" rel="noopener">
-        <div class="term-date">28.05</div>
+      <a class="term-item" href="https://maps.app.goo.gl/Jocc3cUs3HUDkJFA9" target="_blank" rel="noopener" data-date="2026-05-28">
+        <div class="term-date">28 May 2026</div>
         <div class="term-session">Getting Closer to God: David's prayer and worship</div>
         <div class="term-location">Location: ECF</div>
       </a>
-      <a class="term-item" href="https://share.google/jvRvToSr5hkAb1Ac8" target="_blank" rel="noopener">
-        <div class="term-date">04.06</div>
+      <a class="term-item" href="https://maps.app.goo.gl/Jocc3cUs3HUDkJFA9" target="_blank" rel="noopener" data-date="2026-06-04">
+        <div class="term-date">4 Jun 2026</div>
         <div class="term-session">Building Roots in God: David's devotion</div>
         <div class="term-location">Location: ECF</div>
       </a>
-      <a class="term-item" href="https://share.google/jvRvToSr5hkAb1Ac8" target="_blank" rel="noopener">
-        <div class="term-date">11.06</div>
+      <a class="term-item" href="https://maps.app.goo.gl/Jocc3cUs3HUDkJFA9" target="_blank" rel="noopener" data-date="2026-06-11">
+        <div class="term-date">11 Jun 2026</div>
         <div class="term-session">Leavers Central!</div>
         <div class="term-location">Location: ECF</div>
       </a>
@@ -554,6 +573,17 @@
       <div>
         <div class="btn-label">Ask a student to go to church with you</div>
         <div class="btn-sub">Choose a church and we'll help you connect</div>
+      </div>
+    </div>
+    <span class="btn-arrow">›</span>
+  </a>
+
+  <a class="link-btn" href="TODO_PASTE_CHAT_REQUEST_LINK_HERE" target="_blank" rel="noopener">
+    <div class="btn-left">
+      <div class="btn-icon">🗨️</div>
+      <div>
+        <div class="btn-label">Ask a student to have a chat with you</div>
+        <div class="btn-sub">We'll connect you with someone for a chat</div>
       </div>
     </div>
     <span class="btn-arrow">›</span>
@@ -689,6 +719,55 @@ function toggle(id) {
     arrow.classList.add('open');
   }
 }
+
+function formatTermDate(dateValue) {
+  return new Intl.DateTimeFormat('en-GB', {
+    weekday: 'short',
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric'
+  }).format(dateValue);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const cards = Array.from(document.querySelectorAll('.term-item'));
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  let nextCard = null;
+  let nextDate = null;
+
+  cards.forEach(card => {
+    const dateValue = new Date(card.dataset.date + 'T00:00:00');
+    const dateEl = card.querySelector('.term-date');
+
+    if (dateEl) {
+      dateEl.textContent = formatTermDate(dateValue);
+    }
+
+    if (dateValue >= today && (!nextDate || dateValue < nextDate)) {
+      nextDate = dateValue;
+      nextCard = card;
+    }
+  });
+
+  if (!nextCard && cards.length > 0) {
+    nextCard = cards[cards.length - 1];
+    nextDate = new Date(nextCard.dataset.date + 'T00:00:00');
+  }
+
+  if (nextCard) {
+    const ticket = document.getElementById('next-central-ticket');
+    const dateLabel = nextCard.querySelector('.term-date')?.textContent || formatTermDate(nextDate);
+    if (ticket) {
+      ticket.textContent = `🎫 Next CU Central: ${dateLabel}`;
+    }
+
+    requestAnimationFrame(() => {
+      nextCard.scrollIntoView({ behavior: 'auto', block: 'nearest', inline: 'start' });
+    });
+  }
+});
 </script>
 
 </body>
