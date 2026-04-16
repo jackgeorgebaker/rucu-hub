@@ -386,7 +386,7 @@
     .central-ticket {
       margin-top: 10px;
       width: 100%;
-      padding: 5px 0;
+      padding: 7px 10px;
       border-radius: 999px;
       font-size: 10px;
       font-weight: 500;
@@ -394,27 +394,9 @@
       background: rgba(255,255,255,0.11);
       border: 1px solid rgba(255,255,255,0.18);
       line-height: 1;
-      overflow: hidden;
       white-space: nowrap;
-    }
-
-    .central-ticket-track {
-      display: inline-block;
-      padding-left: 100%;
-      animation: centralTicker 16s linear infinite;
-      will-change: transform;
-    }
-
-    @keyframes centralTicker {
-      from { transform: translateX(0); }
-      to { transform: translateX(-100%); }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .central-ticket-track {
-        animation: none;
-        padding-left: 10px;
-      }
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     /* Animation delays */
@@ -471,12 +453,11 @@
       Every Thursday night we come together for worship, talks, testimonies, games, and drinks — then head to the pub after. Everyone welcome, whatever your background or faith.
     </div>
     <div class="central-detail">
-      <div class="central-pill">📅 Every Thursday</div>
       <div class="central-pill">🕕 6:00 prayer</div>
       <div class="central-pill">🕖 7:00 start</div>
       <div class="central-pill">🍺 8:30 Park House</div>
     </div>
-    <div class="central-ticket" id="next-central-ticket"><span class="central-ticket-track" id="next-central-ticket-text">🎫 Next CU Central</span></div>
+    <div class="central-ticket" id="next-central-ticket">🎫 Next CU Central</div>
   </div>
 
   <div class="term-schedule">
@@ -532,7 +513,7 @@
   <!-- Volunteer -->
   <a class="link-btn" href="https://chat.whatsapp.com/CfKpPWJ9PbTDdEzFWzJpbp?mode=gi_t" target="_blank" rel="noopener">
     <div class="btn-left">
-      <div class="btn-icon red">🙋</div>
+      <div class="btn-icon red">🙌</div>
       <div>
         <div class="btn-label">Volunteer</div>
         <div class="btn-sub">Volunteer for a team and get involved</div>
@@ -588,7 +569,7 @@
   <!-- Ask a student to go to church -->
   <a class="link-btn" href="TODO_PASTE_CHURCH_INVITE_LINK_HERE" target="_blank" rel="noopener">
     <div class="btn-left">
-      <div class="btn-icon">🙏</div>
+      <div class="btn-icon">🤝</div>
       <div>
         <div class="btn-label">Ask a student to go to church with you</div>
         <div class="btn-sub">Choose a church and we'll help you connect</div>
@@ -599,7 +580,7 @@
 
   <a class="link-btn" href="TODO_PASTE_CHAT_REQUEST_LINK_HERE" target="_blank" rel="noopener">
     <div class="btn-left">
-      <div class="btn-icon">🗨️</div>
+      <div class="btn-icon">☕</div>
       <div>
         <div class="btn-label">Ask a student to have a chat with you</div>
         <div class="btn-sub">We'll connect you with someone for a chat</div>
@@ -611,7 +592,7 @@
   <!-- Feedback -->
   <a class="link-btn" href="https://forms.office.com/e/XYBdQF3yK6" target="_blank" rel="noopener">
     <div class="btn-left">
-      <div class="btn-icon">💬</div>
+      <div class="btn-icon">📝</div>
       <div>
         <div class="btn-label">Give feedback</div>
         <div class="btn-sub">Tell us what you think</div>
@@ -626,7 +607,7 @@
   <!-- Socials -->
   <button class="link-btn" onclick="toggle('socials')">
     <div class="btn-left">
-      <div class="btn-icon">📲</div>
+      <div class="btn-icon">🌐</div>
       <div>
         <div class="btn-label">Follow the CU</div>
         <div class="btn-sub">Instagram, Facebook, TikTok and WhatsApp</div>
@@ -651,7 +632,7 @@
         </div>
       </a>
       <a class="sub-btn" href="https://www.tiktok.com/@readingunicu" target="_blank" rel="noopener">
-        <span class="sub-icon">🎵</span>
+        <span class="sub-icon">🎶</span>
         <div class="sub-text">
           <div class="sub-title">TikTok</div>
           <div class="sub-desc">@readingunicu</div>
@@ -669,7 +650,7 @@
 
   <button class="link-btn" onclick="toggle('resources')">
     <div class="btn-left">
-      <div class="btn-icon">📚</div>
+      <div class="btn-icon">🧰</div>
       <div>
         <div class="btn-label">CU resources</div>
         <div class="btn-sub">Faith resources and reading</div>
@@ -680,7 +661,7 @@
   <div class="sub-wrap" id="resources">
     <div class="sub-inner">
       <a class="sub-btn" href="TODO_PASTE_CU_LIBRARY_LINK_HERE" target="_blank" rel="noopener">
-        <span class="sub-icon">🏛️</span>
+        <span class="sub-icon">📚</span>
         <div class="sub-text">
           <div class="sub-title">CU library</div>
           <div class="sub-desc">Talks, videos and reading</div>
@@ -694,7 +675,7 @@
         </div>
       </a>
       <a class="sub-btn" href="https://www.christianity.org.uk/request-a-gospel" target="_blank" rel="noopener">
-        <span class="sub-icon">📕</span>
+        <span class="sub-icon">📬</span>
         <div class="sub-text">
           <div class="sub-title">Get a Free Gospel in the mail</div>
           <div class="sub-desc">UK</div>
@@ -708,14 +689,14 @@
         </div>
       </a>
       <a class="sub-btn" href="https://www.christianityexplored.org/explore-online/" target="_blank" rel="noopener">
-        <span class="sub-icon">🎥</span>
+        <span class="sub-icon">▶️</span>
         <div class="sub-text">
           <div class="sub-title">Watch: What is Christianity about?</div>
           <div class="sub-desc">Online introduction</div>
         </div>
       </a>
       <a class="sub-btn" href="https://twowaystolive.com/" target="_blank" rel="noopener">
-        <span class="sub-icon">✝</span>
+        <span class="sub-icon">⏱️</span>
         <div class="sub-text">
           <div class="sub-title">The Gospel in 2 Minutes</div>
           <div class="sub-desc">Two Ways to Live</div>
@@ -727,7 +708,7 @@
   <!-- Small World Cafe -->
   <a class="link-btn" href="https://www.instagram.com/small_world_cafe/" target="_blank" rel="noopener">
     <div class="btn-left">
-      <div class="btn-icon">☕</div>
+      <div class="btn-icon">🌍</div>
       <div>
         <div class="btn-label">Small World Cafe Instagram</div>
         <div class="btn-sub">Our international community on campus</div>
@@ -784,18 +765,43 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  if (!nextCard && cards.length > 0) {
-    nextCard = cards[cards.length - 1];
-    nextDate = new Date(nextCard.dataset.date + 'T00:00:00');
+  if (!nextCard) {
+    const day = today.getDay();
+    const daysUntilThursday = (4 - day + 7) % 7 || 7;
+    nextDate = new Date(today);
+    nextDate.setDate(today.getDate() + daysUntilThursday);
+  }
+
+  if (nextDate) {
+    const ticket = document.getElementById('next-central-ticket');
+    const nextCentralAt = new Date(nextDate);
+    nextCentralAt.setHours(19, 0, 0, 0);
+
+    const updateCountdown = () => {
+      const now = new Date();
+      const diffMs = nextCentralAt - now;
+
+      if (!ticket) return;
+
+      if (diffMs <= 0) {
+        ticket.textContent = '🎫 CU Central is starting now';
+        return;
+      }
+
+      const totalMinutes = Math.floor(diffMs / 60000);
+      const days = Math.floor(totalMinutes / 1440);
+      const hours = Math.floor((totalMinutes % 1440) / 60);
+      const minutes = totalMinutes % 60;
+      const dateLabel = formatTermDate(nextCentralAt);
+
+      ticket.textContent = `🎫 Next CU Central in ${days}d ${String(hours).padStart(2, '0')}h ${String(minutes).padStart(2, '0')}m • ${dateLabel} 7:00pm`;
+    };
+
+    updateCountdown();
+    setInterval(updateCountdown, 30000);
   }
 
   if (nextCard) {
-    const ticketText = document.getElementById('next-central-ticket-text');
-    const dateLabel = nextCard.querySelector('.term-date')?.textContent || formatTermDate(nextDate);
-    if (ticketText) {
-      ticketText.textContent = `🎫 Next CU Central: ${dateLabel} • 6:00 prayer • 7:00 start • Park House after`;
-    }
-
     requestAnimationFrame(() => {
       nextCard.scrollIntoView({ behavior: 'auto', block: 'nearest', inline: 'start' });
     });
