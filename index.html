@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reading Uni CU</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rucu-red: #8b1a1a;
+      --rucu-red-light: #a52020;
+      --bg: #f5f3ef;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --text-muted: #6b6b6b;
+      --border: #e4e0d8;
+      --hover: #f0ece4;
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 40px 16px 60px;
+      color: var(--text);
+    }
+
+    .page {
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      animation: fadeUp 0.4s ease both;
+    }
+
+    .logo-wrap {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--border);
+      box-shadow: 0 4px 16px rgba(139,26,26,0.12);
+    }
+
+    .logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .handle {
+      font-family: 'Lora', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.3px;
+    }
+
+    .bio {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      text-align: center;
+      line-height: 1.6;
+      max-width: 300px;
+    }
+
+    /* Section labels */
+    .section-label {
+      width: 100%;
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 6px 4px 2px;
+      margin-top: 8px;
+    }
+
+    /* Buttons */
+    .link-btn {
+      width: 100%;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      text-decoration: none;
+      color: var(--text);
+      transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      animation: fadeUp 0.4s ease both;
+    }
+
+    .link-btn:hover {
+      background: var(--hover);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .link-btn:active { transform: translateY(0); }
+
+    .btn-left {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .btn-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      flex-shrink: 0;
+    }
+
+    .btn-icon.red {
+      background: #fdf0f0;
+      border-color: #f0d0d0;
+    }
+
+    .btn-label {
+      font-size: 14.5px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .btn-sub {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin-top: 1px;
+      font-weight: 400;
+    }
+
+    .btn-arrow {
+      font-size: 16px;
+      color: var(--text-muted);
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+
+    .btn-arrow.open { transform: rotate(90deg); }
+
+    /* Expandable sub-links */
+    .sub-wrap {
+      width: 100%;
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.28s ease;
+    }
+
+    .sub-wrap.open { max-height: 600px; }
+
+    .sub-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 6px 0 2px 0;
+    }
+
+    .sub-btn {
+      width: 100%;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      color: var(--text);
+      transition: background 0.15s;
+    }
+
+    .sub-btn:hover { background: var(--hover); }
+
+    .sub-icon {
+      font-size: 15px;
+      width: 20px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .sub-text { display: flex; flex-direction: column; gap: 2px; }
+
+    .sub-title {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .sub-desc {
+      font-size: 11.5px;
+      color: var(--text-muted);
+    }
+
+    /* CU Central highlight card */
+    .central-card {
+      width: 100%;
+      background: var(--rucu-red);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      color: white;
+      animation: fadeUp 0.4s ease both;
+      box-shadow: 0 4px 20px rgba(139,26,26,0.2);
+    }
+
+    .central-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .central-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .central-title {
+      font-family: 'Lora', serif;
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    .central-subtitle {
+      font-size: 12px;
+      opacity: 0.75;
+      margin-top: 2px;
+    }
+
+    .central-body {
+      font-size: 13px;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    .central-detail {
+      display: flex;
+      gap: 16px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
+    .central-pill {
+      background: rgba(255,255,255,0.15);
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* Animation delays */
+    .page > *:nth-child(1) { animation-delay: 0.05s; }
+    .page > *:nth-child(2) { animation-delay: 0.1s; }
+    .page > *:nth-child(3) { animation-delay: 0.15s; }
+    .page > *:nth-child(4) { animation-delay: 0.18s; }
+    .page > *:nth-child(5) { animation-delay: 0.21s; }
+    .page > *:nth-child(6) { animation-delay: 0.24s; }
+    .page > *:nth-child(7) { animation-delay: 0.27s; }
+    .page > *:nth-child(8) { animation-delay: 0.30s; }
+    .page > *:nth-child(9) { animation-delay: 0.33s; }
+    .page > *:nth-child(10) { animation-delay: 0.36s; }
+    .page > *:nth-child(11) { animation-delay: 0.39s; }
+    .page > *:nth-child(12) { animation-delay: 0.42s; }
+    .page > *:nth-child(13) { animation-delay: 0.45s; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .footer {
+      margin-top: 24px;
+      font-size: 11px;
+      color: var(--text-muted);
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="logo-wrap">
+      <img src="images.png" alt="RUCU Logo">
+    </div>
+    <div class="handle">@readingunicu</div>
+    <div class="bio">A campus-wide community making the love and truth of Jesus known</div>
+  </div>
+
+  <!-- CU Central highlight -->
+  <div class="central-card">
+    <div class="central-top">
+      <div class="central-icon">✝</div>
+      <div>
+        <div class="central-title">CU Central</div>
+        <div class="central-subtitle">Our main weekly meeting</div>
+      </div>
+    </div>
+    <div class="central-body">
+      Every Thursday night we come together for worship, talks, testimonies, games, and drinks — then head to the pub after. Everyone welcome, whatever your background or faith.
+    </div>
+    <div class="central-detail">
+      <div class="central-pill">📅 Every Thursday</div>
+      <div class="central-pill">🕖 7:15 start</div>
+      <div class="central-pill">🍺 Pub after ~8:15</div>
+    </div>
+  </div>
+
+  <!-- Get involved section -->
+  <div class="section-label">Get involved</div>
+
+  <!-- Volunteer -->
+  <!-- TODO: Replace href with your Google Form link for volunteering -->
+  <!-- Set up email notifications in Google Forms so your team is alerted -->
+  <a class="link-btn" href="TODO_PASTE_VOLUNTEER_GOOGLE_FORM_LINK_HERE" target="_blank" rel="noopener">
+    <div class="btn-left">
+      <div class="btn-icon red">🙋</div>
+      <div>
+        <div class="btn-label">Volunteer for a role</div>
+        <div class="btn-sub">Join a team and get involved</div>
+      </div>
+    </div>
+    <span class="btn-arrow">›</span>
+  </a>
+
+  <!-- 1-to-1s -->
+  <!-- TODO: Each sub-button needs its own Google Form link — one per option -->
+  <!-- Enable email notifications on each form -->
+  <button class="link-btn" onclick="toggle('onetoone')">
+    <div class="btn-left">
+      <div class="btn-icon">📖</div>
+      <div>
+        <div class="btn-label">Request a 1-to-1 or buddy</div>
+        <div class="btn-sub">Connect with someone from the CU</div>
+      </div>
+    </div>
+    <span class="btn-arrow" id="arrow-onetoone">›</span>
+  </button>
+  <div class="sub-wrap" id="onetoone">
+    <div class="sub-inner">
+      <!-- TODO: Replace href with your "Request a 1-to-1" Google Form link -->
+      <a class="sub-btn" href="TODO_PASTE_1TO1_GOOGLE_FORM_LINK_HERE" target="_blank" rel="noopener">
+        <span class="sub-icon">👤</span>
+        <div class="sub-text">
+          <div class="sub-title">Request a 1-to-1</div>
+          <div class="sub-desc">Chat faith with someone over coffee</div>
+        </div>
+      </a>
+      <!-- TODO: Replace href with your "Read the Bible together" Google Form link -->
+      <a class="sub-btn" href="TODO_PASTE_BIBLE_READING_GOOGLE_FORM_LINK_HERE" target="_blank" rel="noopener">
+        <span class="sub-icon">📕</span>
+        <div class="sub-text">
+          <div class="sub-title">Read the Bible with someone</div>
+          <div class="sub-desc">We'll find you a reading partner</div>
+        </div>
+      </a>
+      <!-- TODO: Replace href with your "Find a buddy" Google Form link -->
+      <a class="sub-btn" href="TODO_PASTE_BUDDY_GOOGLE_FORM_LINK_HERE" target="_blank" rel="noopener">
+        <span class="sub-icon">🤝</span>
+        <div class="sub-text">
+          <div class="sub-title">Find a buddy</div>
+          <div class="sub-desc">Someone to do CU life with</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Feedback -->
+  <!-- TODO: Replace href with your feedback Google Form link -->
+  <!-- Optional: pipe responses to Discord via a webhook for the team to see -->
+  <a class="link-btn" href="TODO_PASTE_FEEDBACK_GOOGLE_FORM_LINK_HERE" target="_blank" rel="noopener">
+    <div class="btn-left">
+      <div class="btn-icon">💬</div>
+      <div>
+        <div class="btn-label">Give feedback</div>
+        <div class="btn-sub">Tell us what you think</div>
+      </div>
+    </div>
+    <span class="btn-arrow">›</span>
+  </a>
+
+  <!-- Connect section -->
+  <div class="section-label">Connect</div>
+
+  <!-- Socials -->
+  <button class="link-btn" onclick="toggle('socials')">
+    <div class="btn-left">
+      <div class="btn-icon">📲</div>
+      <div>
+        <div class="btn-label">Follow us</div>
+        <div class="btn-sub">Instagram, Facebook, TikTok & more</div>
+      </div>
+    </div>
+    <span class="btn-arrow" id="arrow-socials">›</span>
+  </button>
+  <div class="sub-wrap" id="socials">
+    <div class="sub-inner">
+      <a class="sub-btn" href="https://www.instagram.com/readingunicu/" target="_blank" rel="noopener">
+        <span class="sub-icon">📸</span>
+        <div class="sub-text">
+          <div class="sub-title">Instagram</div>
+          <div class="sub-desc">@readingunicu</div>
+        </div>
+      </a>
+      <a class="sub-btn" href="https://www.facebook.com/readingunicu" target="_blank" rel="noopener">
+        <span class="sub-icon">👥</span>
+        <div class="sub-text">
+          <div class="sub-title">Facebook</div>
+          <div class="sub-desc">Reading Uni CU</div>
+        </div>
+      </a>
+      <a class="sub-btn" href="https://www.tiktok.com/@readingunicu" target="_blank" rel="noopener">
+        <span class="sub-icon">🎵</span>
+        <div class="sub-text">
+          <div class="sub-title">TikTok</div>
+          <div class="sub-desc">@readingunicu</div>
+        </div>
+      </a>
+      <!-- TODO: Replace href with your WhatsApp community group invite link -->
+      <!-- In WhatsApp: open group → tap group name → Invite via link → Copy link -->
+      <!-- Format: https://chat.whatsapp.com/XXXXXXXXXXXXXXXXXX -->
+      <a class="sub-btn" href="TODO_PASTE_WHATSAPP_COMMUNITY_INVITE_LINK_HERE" target="_blank" rel="noopener">
+        <span class="sub-icon">💬</span>
+        <div class="sub-text">
+          <div class="sub-title">WhatsApp group</div>
+          <div class="sub-desc">Join the main chat</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Small World Cafe -->
+  <!-- TODO: Replace href with the Small World Cafe Instagram link -->
+  <a class="link-btn" href="TODO_PASTE_SMALL_WORLD_CAFE_INSTAGRAM_LINK_HERE" target="_blank" rel="noopener">
+    <div class="btn-left">
+      <div class="btn-icon">☕</div>
+      <div>
+        <div class="btn-label">Small World Cafe</div>
+        <div class="btn-sub">Our campus café — follow on Instagram</div>
+      </div>
+    </div>
+    <span class="btn-arrow">›</span>
+  </a>
+
+  <!-- Chinese Fellowship -->
+  <!-- TODO: Replace href with the RUCU Chinese Fellowship link (Instagram / WeChat / website) -->
+  <a class="link-btn" href="TODO_PASTE_CHINESE_FELLOWSHIP_LINK_HERE" target="_blank" rel="noopener">
+    <div class="btn-left">
+      <div class="btn-icon">🌏</div>
+      <div>
+        <div class="btn-label">RUCU Chinese Fellowship</div>
+        <div class="btn-sub">中文团契 — welcome everyone</div>
+      </div>
+    </div>
+    <span class="btn-arrow">›</span>
+  </a>
+
+  <!-- Explore section -->
+  <div class="section-label">Explore</div>
+
+  <!-- Churches -->
+  <button class="link-btn" onclick="toggle('churches')">
+    <div class="btn-left">
+      <div class="btn-icon">⛪</div>
+      <div>
+        <div class="btn-label">Local churches</div>
+        <div class="btn-sub">Find a church in Reading</div>
+      </div>
+    </div>
+    <span class="btn-arrow" id="arrow-churches">›</span>
+  </button>
+  <div class="sub-wrap" id="churches">
+    <div class="sub-inner">
+      <!-- TODO: Replace href with your local churches list (Notion / Google Doc / separate page) -->
+      <a class="sub-btn" href="TODO_PASTE_CHURCHES_LIST_LINK_HERE" target="_blank" rel="noopener">
+        <span class="sub-icon">📋</span>
+        <div class="sub-text">
+          <div class="sub-title">View all local churches</div>
+          <div class="sub-desc">All denominations welcome</div>
+        </div>
+      </a>
+      <!-- ✅ WIRED: Christianity Explored — swap for another site if preferred -->
+      <a class="sub-btn" href="https://www.christianityexplored.org/" target="_blank" rel="noopener">
+        <span class="sub-icon">ℹ️</span>
+        <div class="sub-text">
+          <div class="sub-title">Find out more about faith</div>
+          <div class="sub-desc">Questions, resources, further reading</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Resources -->
+  <button class="link-btn" onclick="toggle('resources')">
+    <div class="btn-left">
+      <div class="btn-icon">📚</div>
+      <div>
+        <div class="btn-label">CU resources</div>
+        <div class="btn-sub">Talks, playlists & more</div>
+      </div>
+    </div>
+    <span class="btn-arrow" id="arrow-resources">›</span>
+  </button>
+  <div class="sub-wrap" id="resources">
+    <div class="sub-inner">
+      <!-- TODO: Replace href with your CU library link (YouTube playlist / Notion / Google Drive) -->
+      <a class="sub-btn" href="TODO_PASTE_CU_LIBRARY_LINK_HERE" target="_blank" rel="noopener">
+        <span class="sub-icon">🏛️</span>
+        <div class="sub-text">
+          <div class="sub-title">CU library</div>
+          <div class="sub-desc">Talks, videos & reading</div>
+        </div>
+      </a>
+      <!-- ✅ WIRED: Bible Society free resources — swap for Good Book Co. if preferred -->
+      <a class="sub-btn" href="https://www.biblesociety.org.uk/products/free-resources/" target="_blank" rel="noopener">
+        <span class="sub-icon">📕</span>
+        <div class="sub-text">
+          <div class="sub-title">Request a free Gospel</div>
+          <div class="sub-desc">Get a copy sent to you</div>
+        </div>
+      </a>
+      <!-- ✅ WIRED: Spotify -->
+      <a class="sub-btn" href="https://open.spotify.com/user/s93er7wp7xk7qdbuxtw58t2we" target="_blank" rel="noopener">
+        <span class="sub-icon">🎧</span>
+        <div class="sub-text">
+          <div class="sub-title">RUCU Spotify</div>
+          <div class="sub-desc">Worship playlists</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="footer">readingunicu.co.uk</div>
+
+</div>
+
+<script>
+function toggle(id) {
+  const wrap = document.getElementById(id);
+  const arrow = document.getElementById('arrow-' + id);
+  const isOpen = wrap.classList.contains('open');
+  document.querySelectorAll('.sub-wrap').forEach(w => w.classList.remove('open'));
+  document.querySelectorAll('.btn-arrow').forEach(a => a.classList.remove('open'));
+  if (!isOpen) {
+    wrap.classList.add('open');
+    arrow.classList.add('open');
+  }
+}
+</script>
+
+</body>
+</html>
