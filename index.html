@@ -37,7 +37,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     /* Header */
@@ -91,8 +91,9 @@
       letter-spacing: 0.06em;
       text-transform: uppercase;
       color: var(--text-muted);
-      padding: 4px 0 1px;
-      margin-top: 6px;
+      padding: 16px 0 1px;
+      margin-top: 10px;
+      border-top: 1px solid rgba(228, 224, 216, 0.7);
     }
 
     .section-desc {
@@ -100,7 +101,7 @@
       font-size: 12px;
       line-height: 1.5;
       color: var(--text-muted);
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
 
     /* Buttons */
@@ -128,6 +129,20 @@
     }
 
     .link-btn:active { transform: translateY(0); }
+
+    .link-btn.disabled {
+      cursor: default;
+      opacity: 0.64;
+      box-shadow: none;
+      background: #f1eee8;
+      pointer-events: none;
+    }
+
+    .link-btn.disabled:hover {
+      background: #f1eee8;
+      transform: none;
+      box-shadow: none;
+    }
 
     .btn-left {
       display: flex;
@@ -217,12 +232,28 @@
     .sub-btn:hover { background: var(--hover); }
 
     .sub-btn.disabled {
-      opacity: 0.75;
+      opacity: 0.64;
       cursor: default;
       pointer-events: none;
+      background: #f3f0ea;
     }
 
     .sub-btn.disabled:hover { background: var(--card); }
+
+    .coming-soon {
+      margin-left: auto;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #ece6dd;
+      color: var(--text-muted);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      flex-shrink: 0;
+      align-self: center;
+    }
 
     .welcome-line {
       font-size: 13px;
@@ -333,32 +364,32 @@
 
     .term-schedule {
       width: 100%;
-      background: rgba(255,255,255,0.72);
+      background: rgba(255,255,255,0.84);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 7px 9px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      border-radius: 14px;
+      padding: 11px 12px 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
       animation: fadeUp 0.4s ease both;
     }
 
     .term-schedule-title {
-      font-size: 9px;
-      font-weight: 600;
+      font-size: 10px;
+      font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--text-muted);
-      margin-bottom: 4px;
+      margin-bottom: 5px;
     }
 
     .term-schedule-note {
-      font-size: 9px;
+      font-size: 10px;
       color: var(--text-muted);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
     .term-schedule-track {
       display: flex;
-      gap: 6px;
+      gap: 8px;
       overflow-x: auto;
       padding-bottom: 2px;
       scrollbar-width: none;
@@ -369,23 +400,46 @@
     .term-schedule-track::-webkit-scrollbar { display: none; }
 
     .term-item {
-      min-width: 156px;
+      min-width: 162px;
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 9px;
-      padding: 6px 8px;
+      padding: 8px 9px 9px;
       flex: 0 0 auto;
       text-decoration: none;
       color: var(--text);
       transition: background 0.15s, border-color 0.15s, transform 0.15s;
       display: block;
       scroll-snap-align: start;
+      position: relative;
+    }
+
+    .term-item.featured {
+      min-width: 198px;
+      border-color: rgba(139, 26, 26, 0.28);
+      background: linear-gradient(180deg, #fffdfc 0%, #fff6f6 100%);
+      box-shadow: 0 8px 20px rgba(139, 26, 26, 0.12);
+    }
+
+    .term-item.featured .term-session {
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .term-item.past {
+      opacity: 0.55;
     }
 
     .term-item:hover {
       background: var(--hover);
       border-color: #d8d1c6;
       transform: translateY(-1px);
+    }
+
+    .term-item.featured:hover {
+      background: linear-gradient(180deg, #fffdfc 0%, #fff1f1 100%);
+      border-color: rgba(139, 26, 26, 0.34);
     }
 
     .term-date {
@@ -395,6 +449,32 @@
       letter-spacing: 0.04em;
       text-transform: uppercase;
       margin-bottom: 2px;
+    }
+
+    .term-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      align-self: flex-start;
+      margin-bottom: 6px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: #f1ece4;
+      color: var(--text-muted);
+    }
+
+    .term-item.featured .term-badge {
+      background: var(--rucu-red);
+      color: white;
+    }
+
+    .term-item.past .term-badge {
+      background: #e7e1d7;
+      color: #7b7164;
     }
 
     .term-session {
@@ -450,7 +530,27 @@
       margin-top: 24px;
       font-size: 11px;
       color: var(--text-muted);
-      opacity: 0.6;
+      opacity: 0.85;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      align-items: center;
+    }
+
+    .footer a {
+      color: var(--rucu-red);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-note {
+      font-size: 12px;
+      color: var(--text-muted);
     }
   </style>
 </head>
@@ -490,7 +590,7 @@
 
   <div class="term-schedule">
     <div class="term-schedule-title">This term</div>
-    <div class="term-schedule-note">Tap a card to open maps.</div>
+    <div class="term-schedule-note">This week's event is highlighted. Past events are faded.</div>
     <div class="term-schedule-track">
       <a class="term-item" href="https://maps.app.goo.gl/EnRPxZdhCygHJ8WW6" target="_blank" rel="noopener" data-date="2026-04-23">
         <div class="term-date">23 Apr 2026</div>
@@ -535,9 +635,109 @@
     </div>
   </div>
 
+  <!-- Get connected section -->
+  <div class="section-label">Curious about faith?</div>
+  <div class="section-desc">Explore faith, find a buddy, or meet 1-to-1 at your own pace.</div>
+
+  <!-- Join an Impact Group -->
+  <a class="link-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeEfmwq_eMgqFJBO6qtFu15YDSvjIjumUZoAHanV3IsRxsoEw/viewform?usp=dialog" target="_blank" rel="noopener">
+    <div class="btn-left">
+      <div class="btn-icon">👥</div>
+      <div>
+        <div class="btn-label">Join an Impact Group</div>
+        <div class="btn-sub">A small group that meets weekly to explore faith together</div>
+      </div>
+    </div>
+    <span class="btn-arrow">›</span>
+  </a>
+
+  <!-- Get a CU buddy -->
+  <a class="link-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSd_U42Gck4tP-V2nXYMtqF-FasyRtx_J7TZ4f9eFgg-ZBMcfw/viewform?usp=publish-editor" target="_blank" rel="noopener">
+    <div class="btn-left">
+      <div class="btn-icon">🤝</div>
+      <div>
+        <div class="btn-label">Get a CU buddy</div>
+        <div class="btn-sub">Someone to sit with, explore with, or just grab coffee with. We'll find you your person.</div>
+      </div>
+    </div>
+    <span class="btn-arrow">›</span>
+  </a>
+
+  <!-- Chat about faith or read the Bible together -->
+  <a class="link-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeRT31o0noTbAsviVMbpODomS0kOqBX8zh640VZFP2-mmaf6w/viewform?usp=publish-editor" target="_blank" rel="noopener">
+    <div class="btn-left">
+      <div class="btn-icon">☕</div>
+      <div>
+        <div class="btn-label">Request a 1-to-1 or Bible reading</div>
+        <div class="btn-sub">Got questions? Not sure what you think? We'd love to chat — no agenda, no pressure.</div>
+      </div>
+    </div>
+    <span class="btn-arrow">›</span>
+  </a>
+
+  <!-- Connect section -->
+  <div class="section-label">Connect</div>
+  <div class="section-desc">Follow us online and stay in the loop.</div>
+
+  <!-- Socials -->
+  <button class="link-btn" onclick="toggle('socials')">
+    <div class="btn-left">
+      <div class="btn-icon">🌐</div>
+      <div>
+        <div class="btn-label">Follow the CU</div>
+        <div class="btn-sub">Instagram, Facebook, TikTok and WhatsApp</div>
+      </div>
+    </div>
+    <span class="btn-arrow" id="arrow-socials">›</span>
+  </button>
+  <div class="sub-wrap" id="socials">
+    <div class="sub-inner">
+      <a class="sub-btn" href="https://www.instagram.com/readingunicu/" target="_blank" rel="noopener">
+        <span class="sub-icon">📸</span>
+        <div class="sub-text">
+          <div class="sub-title">Instagram</div>
+          <div class="sub-desc">@readingunicu</div>
+        </div>
+      </a>
+      <a class="sub-btn" href="https://www.facebook.com/readingunicu" target="_blank" rel="noopener">
+        <span class="sub-icon">👥</span>
+        <div class="sub-text">
+          <div class="sub-title">Facebook</div>
+          <div class="sub-desc">Reading Uni CU</div>
+        </div>
+      </a>
+      <a class="sub-btn" href="https://www.tiktok.com/@readingunicu" target="_blank" rel="noopener">
+        <span class="sub-icon">🎶</span>
+        <div class="sub-text">
+          <div class="sub-title">TikTok</div>
+          <div class="sub-desc">@readingunicu</div>
+        </div>
+      </a>
+      <a class="sub-btn" href="https://chat.whatsapp.com/CfKpPWJ9PbTDdEzFWzJpbp?mode=gi_t" target="_blank" rel="noopener">
+        <span class="sub-icon">💬</span>
+        <div class="sub-text">
+          <div class="sub-title">WhatsApp group</div>
+          <div class="sub-desc">Join the main chat</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Feedback -->
+  <a class="link-btn" href="https://forms.office.com/e/XYBdQF3yK6" target="_blank" rel="noopener">
+    <div class="btn-left">
+      <div class="btn-icon">📝</div>
+      <div>
+        <div class="btn-label">Give feedback</div>
+        <div class="btn-sub">Tell us what you think</div>
+      </div>
+    </div>
+    <span class="btn-arrow">›</span>
+  </a>
+
   <!-- Get involved section -->
   <div class="section-label">Get involved</div>
-  <div class="section-desc">If you want to help out, these are the easiest places to start.</div>
+  <div class="section-desc">CU runs because people give their time. If you'd like to be one of them, here's where to start.</div>
 
   <!-- Volunteer -->
   <a class="link-btn" href="https://chat.whatsapp.com/CfKpPWJ9PbTDdEzFWzJpbp?mode=gi_t" target="_blank" rel="noopener">
@@ -623,106 +823,6 @@
     </div>
   </div>
 
-  <!-- Get connected section -->
-  <div class="section-label">Get connected</div>
-  <div class="section-desc">Low-pressure ways to explore faith, find people, or take a next step at your own pace.</div>
-
-  <!-- Join an Impact Group -->
-  <a class="link-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeEfmwq_eMgqFJBO6qtFu15YDSvjIjumUZoAHanV3IsRxsoEw/viewform?usp=dialog" target="_blank" rel="noopener">
-    <div class="btn-left">
-      <div class="btn-icon">👥</div>
-      <div>
-        <div class="btn-label">Join an Impact Group</div>
-        <div class="btn-sub">A small group that meets weekly to explore faith together</div>
-      </div>
-    </div>
-    <span class="btn-arrow">›</span>
-  </a>
-
-  <!-- Get a CU buddy -->
-  <a class="link-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSd_U42Gck4tP-V2nXYMtqF-FasyRtx_J7TZ4f9eFgg-ZBMcfw/viewform?usp=publish-editor" target="_blank" rel="noopener">
-    <div class="btn-left">
-      <div class="btn-icon">🤝</div>
-      <div>
-        <div class="btn-label">Get a CU buddy</div>
-        <div class="btn-sub">Someone to sit with, explore with, or just grab coffee with. We'll find you your person.</div>
-      </div>
-    </div>
-    <span class="btn-arrow">›</span>
-  </a>
-
-  <!-- Chat about faith or read the Bible together -->
-  <a class="link-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeRT31o0noTbAsviVMbpODomS0kOqBX8zh640VZFP2-mmaf6w/viewform?usp=publish-editor" target="_blank" rel="noopener">
-    <div class="btn-left">
-      <div class="btn-icon">☕</div>
-      <div>
-        <div class="btn-label">Request a 1-to-1 or Bible reading</div>
-        <div class="btn-sub">Got questions? Not sure what you think? We'd love to chat — no agenda, no pressure.</div>
-      </div>
-    </div>
-    <span class="btn-arrow">›</span>
-  </a>
-
-  <!-- Connect section -->
-  <div class="section-label">Connect</div>
-  <div class="section-desc">Stay in touch, follow along, or send a message whenever you're ready.</div>
-
-  <!-- Socials -->
-  <button class="link-btn" onclick="toggle('socials')">
-    <div class="btn-left">
-      <div class="btn-icon">🌐</div>
-      <div>
-        <div class="btn-label">Follow the CU</div>
-        <div class="btn-sub">Instagram, Facebook, TikTok and WhatsApp</div>
-      </div>
-    </div>
-    <span class="btn-arrow" id="arrow-socials">›</span>
-  </button>
-  <div class="sub-wrap" id="socials">
-    <div class="sub-inner">
-      <a class="sub-btn" href="https://www.instagram.com/readingunicu/" target="_blank" rel="noopener">
-        <span class="sub-icon">📸</span>
-        <div class="sub-text">
-          <div class="sub-title">Instagram</div>
-          <div class="sub-desc">@readingunicu</div>
-        </div>
-      </a>
-      <a class="sub-btn" href="https://www.facebook.com/readingunicu" target="_blank" rel="noopener">
-        <span class="sub-icon">👥</span>
-        <div class="sub-text">
-          <div class="sub-title">Facebook</div>
-          <div class="sub-desc">Reading Uni CU</div>
-        </div>
-      </a>
-      <a class="sub-btn" href="https://www.tiktok.com/@readingunicu" target="_blank" rel="noopener">
-        <span class="sub-icon">🎶</span>
-        <div class="sub-text">
-          <div class="sub-title">TikTok</div>
-          <div class="sub-desc">@readingunicu</div>
-        </div>
-      </a>
-      <a class="sub-btn" href="https://chat.whatsapp.com/CfKpPWJ9PbTDdEzFWzJpbp?mode=gi_t" target="_blank" rel="noopener">
-        <span class="sub-icon">💬</span>
-        <div class="sub-text">
-          <div class="sub-title">WhatsApp group</div>
-          <div class="sub-desc">Join the main chat</div>
-        </div>
-      </a>
-    </div>
-  </div>
-
-  <!-- Feedback -->
-  <a class="link-btn" href="https://forms.office.com/e/XYBdQF3yK6" target="_blank" rel="noopener">
-    <div class="btn-left">
-      <div class="btn-icon">📝</div>
-      <div>
-        <div class="btn-label">Give feedback</div>
-        <div class="btn-sub">Tell us what you think</div>
-      </div>
-    </div>
-    <span class="btn-arrow">›</span>
-  </a>
-
   <!-- Communities section -->
   <div class="section-label">Communities</div>
   <div class="section-desc">CU is bigger than Thursday nights — here are some of the other spaces we're part of.</div>
@@ -753,12 +853,13 @@
           <div class="sub-title">Small World Cafe WhatsApp</div>
           <div class="sub-desc">Link coming soon</div>
         </div>
+        <span class="coming-soon">Coming soon</span>
       </div>
     </div>
   </div>
 
   <!-- CU Football -->
-  <div class="link-btn sub-btn disabled" aria-disabled="true" style="text-decoration:none;">
+  <div class="link-btn disabled" aria-disabled="true">
     <div class="btn-left">
       <div class="btn-icon">⚽</div>
       <div>
@@ -766,66 +867,56 @@
         <div class="btn-sub">Link coming soon</div>
       </div>
     </div>
-    <span class="btn-arrow">›</span>
+    <span class="coming-soon">Coming soon</span>
   </div>
 
   <!-- CU Resources -->
   <div class="section-label">CU Resources</div>
   <div class="section-desc">Whether you're curious about faith or want to go deeper — something here is for you.</div>
-
-  <button class="link-btn" onclick="toggle('resources')">
-    <div class="btn-left">
-      <div class="btn-icon">🧰</div>
-      <div>
-        <div class="btn-label">CU resources</div>
-        <div class="btn-sub">Helpful links for curiosity, questions, and going deeper</div>
+  <div class="sub-inner">
+    <a class="sub-btn" href="https://www.uncover.org.uk/" target="_blank" rel="noopener">
+      <span class="sub-icon">🔍</span>
+      <div class="sub-text">
+        <div class="sub-title">Investigate Jesus for yourself — Uncover</div>
       </div>
-    </div>
-    <span class="btn-arrow" id="arrow-resources">›</span>
-  </button>
-  <div class="sub-wrap" id="resources">
-    <div class="sub-inner">
-      <a class="sub-btn" href="https://open.spotify.com/user/s93er7wp7xk7qdbuxtw58t2we?si=6ac954c1b25c4c30" target="_blank" rel="noopener">
-        <span class="sub-icon">🎧</span>
-        <div class="sub-text">
-          <div class="sub-title">RUCU Spotify</div>
-        </div>
-      </a>
-      <a class="sub-btn" href="https://www.christianity.org.uk/request-a-gospel" target="_blank" rel="noopener">
-        <span class="sub-icon">📬</span>
-        <div class="sub-text">
-          <div class="sub-title">Get a free Gospel in the mail</div>
-        </div>
-      </a>
-      <a class="sub-btn" href="https://twowaystolive.com/" target="_blank" rel="noopener">
-        <span class="sub-icon">⏱️</span>
-        <div class="sub-text">
-          <div class="sub-title">The Gospel in 2 mins</div>
-        </div>
-      </a>
-      <a class="sub-btn" href="https://www.uncover.org.uk/" target="_blank" rel="noopener">
-        <span class="sub-icon">🔍</span>
-        <div class="sub-text">
-          <div class="sub-title">Investigate Jesus for yourself — Uncover</div>
-        </div>
-      </a>
-      <a class="sub-btn" href="https://resources.uccf.io/" target="_blank" rel="noopener">
-        <span class="sub-icon">🧭</span>
-        <div class="sub-text">
-          <div class="sub-title">Resources for CU members — UCCF</div>
-        </div>
-      </a>
-      <a class="sub-btn" href="https://calendar.google.com/calendar/u/1?cid=cmVhZGluZ3VuaWNocmlzdGlhbnVuaW9uQGdtYWlsLmNvbQ" target="_blank" rel="noopener">
-        <span class="sub-icon">📅</span>
-        <div class="sub-text">
-          <div class="sub-title">CU Calendar</div>
-          <div class="sub-desc">See what's coming up</div>
-        </div>
-      </a>
-    </div>
+    </a>
+    <a class="sub-btn" href="https://twowaystolive.com/" target="_blank" rel="noopener">
+      <span class="sub-icon">⏱️</span>
+      <div class="sub-text">
+        <div class="sub-title">The Gospel in 2 Minutes</div>
+      </div>
+    </a>
+    <a class="sub-btn" href="https://www.christianity.org.uk/request-a-gospel" target="_blank" rel="noopener">
+      <span class="sub-icon">📬</span>
+      <div class="sub-text">
+        <div class="sub-title">Get a free Gospel in the mail</div>
+      </div>
+    </a>
+    <a class="sub-btn" href="https://open.spotify.com/user/s93er7wp7xk7qdbuxtw58t2we?si=6ac954c1b25c4c30" target="_blank" rel="noopener">
+      <span class="sub-icon">🎧</span>
+      <div class="sub-text">
+        <div class="sub-title">RUCU Spotify</div>
+      </div>
+    </a>
+    <a class="sub-btn" href="https://resources.uccf.io/" target="_blank" rel="noopener">
+      <span class="sub-icon">🧭</span>
+      <div class="sub-text">
+        <div class="sub-title">Resources for CU members — UCCF</div>
+      </div>
+    </a>
+    <a class="sub-btn" href="https://calendar.google.com/calendar/u/1?cid=cmVhZGluZ3VuaWNocmlzdGlhbnVuaW9uQGdtYWlsLmNvbQ" target="_blank" rel="noopener">
+      <span class="sub-icon">📅</span>
+      <div class="sub-text">
+        <div class="sub-title">CU Calendar</div>
+        <div class="sub-desc">See what's coming up</div>
+      </div>
+    </a>
   </div>
 
-  <div class="footer">readingunicu.co.uk</div>
+  <div class="footer">
+    <a href="https://readingunicu.co.uk">readingunicu.co.uk</a>
+    <div class="footer-note">We're glad you're here.</div>
+  </div>
 
 </div>
 
@@ -871,6 +962,24 @@ document.addEventListener('DOMContentLoaded', () => {
       nextDate = dateValue;
       nextCard = card;
     }
+  });
+
+  cards.forEach(card => {
+    const dateValue = new Date(card.dataset.date + 'T00:00:00');
+    const isPast = dateValue < today;
+    const isFeatured = !!nextCard && card === nextCard;
+
+    card.classList.toggle('past', isPast);
+    card.classList.toggle('featured', isFeatured);
+
+    let badge = card.querySelector('.term-badge');
+    if (!badge) {
+      badge = document.createElement('div');
+      badge.className = 'term-badge';
+      card.insertBefore(badge, card.firstChild);
+    }
+
+    badge.textContent = isPast ? 'Past' : isFeatured ? 'This week' : 'Upcoming';
   });
 
   if (!nextCard) {
