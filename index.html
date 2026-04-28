@@ -1002,7 +1002,8 @@ document.addEventListener('DOMContentLoaded', () => {
       card.insertBefore(badge, card.firstChild);
     }
 
-    badge.textContent = isPast ? 'Past' : isFeatured ? 'This week' : 'Upcoming';
+    const day = today.getDay();
+    badge.textContent = isFeatured ? (day === 5 || day === 6 || day === 0 ? 'Next week' : 'This week') : isPast ? 'Past' : 'Upcoming';
   });
 
   if (nextCard) {
