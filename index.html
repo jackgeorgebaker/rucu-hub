@@ -208,6 +208,14 @@
 
     .sub-btn:hover { background: var(--hover); }
 
+    .sub-btn.disabled {
+      opacity: 0.75;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .sub-btn.disabled:hover { background: var(--card); }
+
     .sub-icon {
       font-size: 15px;
       width: 20px;
@@ -599,7 +607,7 @@
   <div class="section-label">Next Steps</div>
 
   <!-- Join an Impact Group -->
-  <a class="link-btn" href="TODO_PASTE_IMPACT_GROUP_LINK_HERE" target="_blank" rel="noopener">
+  <a class="link-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeEfmwq_eMgqFJBO6qtFu15YDSvjIjumUZoAHanV3IsRxsoEw/viewform?usp=dialog" target="_blank" rel="noopener">
     <div class="btn-left">
       <div class="btn-icon">👥</div>
       <div>
@@ -611,7 +619,7 @@
   </a>
 
   <!-- Get a CU buddy -->
-  <a class="link-btn" href="TODO_PASTE_CU_BUDDY_LINK_HERE" target="_blank" rel="noopener">
+  <a class="link-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSd_U42Gck4tP-V2nXYMtqF-FasyRtx_J7TZ4f9eFgg-ZBMcfw/viewform?usp=publish-editor" target="_blank" rel="noopener">
     <div class="btn-left">
       <div class="btn-icon">🤝</div>
       <div>
@@ -623,7 +631,7 @@
   </a>
 
   <!-- Chat about faith or read the Bible together -->
-  <a class="link-btn" href="TODO_PASTE_1TO1_LINK_HERE" target="_blank" rel="noopener">
+  <a class="link-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeRT31o0noTbAsviVMbpODomS0kOqBX8zh640VZFP2-mmaf6w/viewform?usp=publish-editor" target="_blank" rel="noopener">
     <div class="btn-left">
       <div class="btn-icon">☕</div>
       <div>
@@ -753,12 +761,13 @@
   </button>
   <div class="sub-wrap" id="resources">
     <div class="sub-inner">
-      <a class="sub-btn" href="TODO_PASTE_CU_LIBRARY_LINK_HERE" target="_blank" rel="noopener">
+      <div class="sub-btn disabled" aria-disabled="true">
         <span class="sub-icon">📚</span>
         <div class="sub-text">
           <div class="sub-title">CU library</div>
+          <div class="sub-desc">Coming soon</div>
         </div>
-      </a>
+      </div>
       <a class="sub-btn" href="https://open.spotify.com/user/s93er7wp7xk7qdbuxtw58t2we?si=6ac954c1b25c4c30" target="_blank" rel="noopener">
         <span class="sub-icon">🎧</span>
         <div class="sub-text">
@@ -792,7 +801,7 @@
           <div class="sub-desc">https://resources.uccf.io/</div>
         </div>
       </a>
-      <a class="sub-btn" href="TODO_PASTE_CU_CALENDAR_LINK_HERE" target="_blank" rel="noopener">
+      <a class="sub-btn" href="https://calendar.google.com/calendar/ical/readingunichristianunion%40gmail.com/public/basic.ics" target="_blank" rel="noopener">
         <span class="sub-icon">📅</span>
         <div class="sub-text">
           <div class="sub-title">CU Calendar</div>
