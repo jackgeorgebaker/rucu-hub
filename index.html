@@ -107,22 +107,6 @@
     /* Buttons */
     .link-btn {
       width: 100%;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 14px 18px;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      cursor: pointer;
-      text-decoration: none;
-      color: var(--text);
-      transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-      animation: fadeUp 0.4s ease both;
-    }
-
-    .link-btn:hover {
       background: var(--hover);
       transform: translateY(-1px);
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
@@ -212,6 +196,10 @@
       flex-direction: column;
       gap: 6px;
       padding: 6px 0 2px 0;
+    }
+
+    .resources-list {
+      width: 100%;
     }
 
     .sub-btn {
@@ -565,7 +553,7 @@
     </div>
     <div class="handle">@readingunicu</div>
     <div class="bio">A campus-wide community making the love and truth of Jesus known</div>
-    <div class="welcome-line">New here? Scroll down to explore faith, find community, or just see what's on.</div>
+    <div class="welcome-line">New here? Scroll down to explore faith, find community or just see what's on.</div>
   </div>
 
   <!-- CU Central highlight -->
@@ -578,14 +566,13 @@
       </div>
     </div>
     <div class="central-body">
-      Every Thursday night we come together for worship, talks, testimonies, games, and drinks — then head to the pub after. It's one of the best nights of the week: warm, welcoming, and no pressure. Come as you are — curious, sceptical, or somewhere in between.
+      Every Thursday night we come together for worship, talks, testimonies, games and drinks — then head to the pub after. It's one of the best nights of the week: warm, welcoming and no pressure. Come as you are — curious, sceptical or somewhere in between.
     </div>
     <div class="central-detail">
       <div class="central-pill">🕕 6:00pm prayer</div>
       <div class="central-pill">🕖 7:00pm start</div>
       <div class="central-pill">🍺 8:30 Park House</div>
     </div>
-    <div class="central-ticket" id="next-central-ticket">🎫 Next CU Central</div>
   </div>
 
   <div class="term-schedule">
@@ -637,7 +624,31 @@
 
   <!-- Get connected section -->
   <div class="section-label">Curious about faith?</div>
-  <div class="section-desc">Explore faith, find a buddy, or meet 1-to-1 at your own pace.</div>
+  <div class="section-desc">Got questions about faith? Whether you want to chat, read the Bible with someone or find a community — here's where to start.</div>
+
+  <!-- Chat about faith or read the Bible together -->
+  <a class="link-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeRT31o0noTbAsviVMbpODomS0kOqBX8zh640VZFP2-mmaf6w/viewform?usp=publish-editor" target="_blank" rel="noopener">
+    <div class="btn-left">
+      <div class="btn-icon">☕</div>
+      <div>
+        <div class="btn-label">Request a 1-to-1 or Bible reading</div>
+        <div class="btn-sub">Got questions? Not sure what you think? We'd love to chat — no agenda, no pressure.</div>
+      </div>
+    </div>
+    <span class="btn-arrow">›</span>
+  </a>
+
+  <!-- Get a CU buddy -->
+  <a class="link-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSd_U42Gck4tP-V2nXYMtqF-FasyRtx_J7TZ4f9eFgg-ZBMcfw/viewform?usp=publish-editor" target="_blank" rel="noopener">
+    <div class="btn-left">
+      <div class="btn-icon">🤝</div>
+      <div>
+        <div class="btn-label">Get a CU buddy</div>
+          <div class="btn-sub">Someone to sit with, explore with or just grab coffee with. We'll find you your person.</div>
+      </div>
+    </div>
+    <span class="btn-arrow">›</span>
+  </a>
 
   <!-- Join an Impact Group -->
   <a class="link-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeEfmwq_eMgqFJBO6qtFu15YDSvjIjumUZoAHanV3IsRxsoEw/viewform?usp=dialog" target="_blank" rel="noopener">
@@ -651,28 +662,92 @@
     <span class="btn-arrow">›</span>
   </a>
 
-  <!-- Get a CU buddy -->
+  <!-- Find a church section -->
+  <div class="section-label">Find a church</div>
+  <div class="section-desc">CU isn't just Thursday nights — we want to help you find a church community that's right for you. All denominations, all welcome.</div>
+
+  <!-- Local churches -->
+  <button class="link-btn" onclick="toggle('churches')">
+    <div class="btn-left">
+      <div class="btn-icon">⛪</div>
+      <div>
+        <div class="btn-label">Local churches</div>
+        <div class="btn-sub">Find a church in Reading</div>
+      </div>
+    </div>
+    <span class="btn-arrow" id="arrow-churches">›</span>
+  </button>
+  <div class="sub-wrap" id="churches">
+    <div class="sub-inner">
+      <a class="sub-btn" href="https://www.careybaptistchurch.org.uk/" target="_blank" rel="noopener">
+        <span class="sub-icon">📍</span>
+        <div class="sub-text">
+          <div class="sub-title">Carey Baptist Church</div>
+          <div class="sub-desc">Central Reading</div>
+        </div>
+      </a>
+      <a class="sub-btn" href="https://www.readingfamilychurch.org.uk/" target="_blank" rel="noopener">
+        <span class="sub-icon">📍</span>
+        <div class="sub-text">
+          <div class="sub-title">Reading Family Church</div>
+          <div class="sub-desc">South Reading (Whitley)</div>
+        </div>
+      </a>
+      <a class="sub-btn" href="https://wycliffe.church/" target="_blank" rel="noopener">
+        <span class="sub-icon">📍</span>
+        <div class="sub-text">
+          <div class="sub-title">Wycliffe Baptist Church</div>
+          <div class="sub-desc">East Reading</div>
+        </div>
+      </a>
+      <a class="sub-btn" href="https://greyfriars.org.uk" target="_blank" rel="noopener">
+        <span class="sub-icon">📍</span>
+        <div class="sub-text">
+          <div class="sub-title">Greyfriars</div>
+          <div class="sub-desc">Central Reading</div>
+        </div>
+      </a>
+      <a class="sub-btn" href="https://www.kvfc.org.uk" target="_blank" rel="noopener">
+        <span class="sub-icon">📍</span>
+        <div class="sub-text">
+          <div class="sub-title">Kennet Valley Free Church</div>
+          <div class="sub-desc">West Reading (Calcot)</div>
+        </div>
+      </a>
+      <a class="sub-btn" href="https://www.tyndalebaptistchurch.org.uk" target="_blank" rel="noopener">
+        <span class="sub-icon">📍</span>
+        <div class="sub-text">
+          <div class="sub-title">Tyndale Baptist Church</div>
+          <div class="sub-desc">South Reading</div>
+        </div>
+      </a>
+      <a class="sub-btn" href="https://www.ecfreading.org" target="_blank" rel="noopener">
+        <span class="sub-icon">📍</span>
+        <div class="sub-text">
+          <div class="sub-title">Earley Christian Fellowship (ECF)</div>
+          <div class="sub-desc">Earley</div>
+        </div>
+      </a>
+      <a class="sub-btn" href="https://www.allnationselim.org" target="_blank" rel="noopener">
+        <span class="sub-icon">📍</span>
+        <div class="sub-text">
+          <div class="sub-title">All Nations Christian Centre</div>
+          <div class="sub-desc">South-West Reading</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Temporary placeholder: this currently uses the CU buddy form until a dedicated church-link form exists. -->
   <a class="link-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSd_U42Gck4tP-V2nXYMtqF-FasyRtx_J7TZ4f9eFgg-ZBMcfw/viewform?usp=publish-editor" target="_blank" rel="noopener">
     <div class="btn-left">
-      <div class="btn-icon">🤝</div>
+      <div class="btn-icon">🚶</div>
       <div>
-        <div class="btn-label">Get a CU buddy</div>
-        <div class="btn-sub">Someone to sit with, explore with, or just grab coffee with. We'll find you your person.</div>
+        <div class="btn-label">Go to church with a student</div>
+        <div class="btn-sub">Not sure where to start? We'll connect you with a CU member who goes to that church.</div>
       </div>
     </div>
-    <span class="btn-arrow">›</span>
-  </a>
-
-  <!-- Chat about faith or read the Bible together -->
-  <a class="link-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeRT31o0noTbAsviVMbpODomS0kOqBX8zh640VZFP2-mmaf6w/viewform?usp=publish-editor" target="_blank" rel="noopener">
-    <div class="btn-left">
-      <div class="btn-icon">☕</div>
-      <div>
-        <div class="btn-label">Request a 1-to-1 or Bible reading</div>
-        <div class="btn-sub">Got questions? Not sure what you think? We'd love to chat — no agenda, no pressure.</div>
-      </div>
-    </div>
-    <span class="btn-arrow">›</span>
+    <span class="coming-soon">comming soon</span>
   </a>
 
   <!-- Connect section -->
@@ -751,78 +826,6 @@
     <span class="btn-arrow">›</span>
   </a>
 
-  <!-- Local churches -->
-  <button class="link-btn" onclick="toggle('churches')">
-    <div class="btn-left">
-      <div class="btn-icon">⛪</div>
-      <div>
-        <div class="btn-label">Local churches</div>
-        <div class="btn-sub">Find a church in Reading</div>
-      </div>
-    </div>
-    <span class="btn-arrow" id="arrow-churches">›</span>
-  </button>
-  <div class="sub-wrap" id="churches">
-    <div class="sub-inner">
-      <a class="sub-btn" href="https://www.careybaptistchurch.org.uk/" target="_blank" rel="noopener">
-        <span class="sub-icon">📍</span>
-        <div class="sub-text">
-          <div class="sub-title">Carey Baptist Church</div>
-          <div class="sub-desc">Central Reading</div>
-        </div>
-      </a>
-      <a class="sub-btn" href="https://www.readingfamilychurch.org.uk/" target="_blank" rel="noopener">
-        <span class="sub-icon">📍</span>
-        <div class="sub-text">
-          <div class="sub-title">Reading Family Church</div>
-          <div class="sub-desc">South Reading (Whitley)</div>
-        </div>
-      </a>
-      <a class="sub-btn" href="https://wycliffe.church/" target="_blank" rel="noopener">
-        <span class="sub-icon">📍</span>
-        <div class="sub-text">
-          <div class="sub-title">Wycliffe Baptist Church</div>
-          <div class="sub-desc">East Reading</div>
-        </div>
-      </a>
-      <a class="sub-btn" href="https://greyfriars.org.uk" target="_blank" rel="noopener">
-        <span class="sub-icon">📍</span>
-        <div class="sub-text">
-          <div class="sub-title">Greyfriars</div>
-          <div class="sub-desc">Central Reading</div>
-        </div>
-      </a>
-      <a class="sub-btn" href="https://www.kvfc.org.uk" target="_blank" rel="noopener">
-        <span class="sub-icon">📍</span>
-        <div class="sub-text">
-          <div class="sub-title">Kennet Valley Free Church</div>
-          <div class="sub-desc">West Reading (Calcot)</div>
-        </div>
-      </a>
-      <a class="sub-btn" href="https://www.tyndalebaptistchurch.org.uk" target="_blank" rel="noopener">
-        <span class="sub-icon">📍</span>
-        <div class="sub-text">
-          <div class="sub-title">Tyndale Baptist Church</div>
-          <div class="sub-desc">South Reading</div>
-        </div>
-      </a>
-      <a class="sub-btn" href="https://www.ecfreading.org" target="_blank" rel="noopener">
-        <span class="sub-icon">📍</span>
-        <div class="sub-text">
-          <div class="sub-title">Earley Christian Fellowship (ECF)</div>
-          <div class="sub-desc">Earley</div>
-        </div>
-      </a>
-      <a class="sub-btn" href="https://www.allnationselim.org" target="_blank" rel="noopener">
-        <span class="sub-icon">📍</span>
-        <div class="sub-text">
-          <div class="sub-title">All Nations Christian Centre</div>
-          <div class="sub-desc">South-West Reading</div>
-        </div>
-      </a>
-    </div>
-  </div>
-
   <!-- Communities section -->
   <div class="section-label">Communities</div>
   <div class="section-desc">CU is bigger than Thursday nights — here are some of the other spaces we're part of.</div>
@@ -847,14 +850,13 @@
           <div class="sub-desc">Follow for updates</div>
         </div>
       </a>
-      <div class="sub-btn disabled" aria-disabled="true">
+      <a class="sub-btn" href="https://chat.whatsapp.com/KTXpDjeVpwjAupZIlgqxJy?mode=gi_t" target="_blank" rel="noopener">
         <span class="sub-icon">💬</span>
         <div class="sub-text">
           <div class="sub-title">Small World Cafe WhatsApp</div>
-          <div class="sub-desc">Link coming soon</div>
+          <div class="sub-desc">Join the Small World Cafe chat</div>
         </div>
-        <span class="coming-soon">Coming soon</span>
-      </div>
+      </a>
     </div>
   </div>
 
@@ -873,7 +875,17 @@
   <!-- CU Resources -->
   <div class="section-label">CU Resources</div>
   <div class="section-desc">Whether you're curious about faith or want to go deeper — something here is for you.</div>
-  <div class="sub-inner">
+  <div class="link-btn disabled" aria-disabled="true">
+    <div class="btn-left">
+      <div class="btn-icon">📚</div>
+      <div>
+        <div class="btn-label">CU Library</div>
+        <div class="btn-sub">Coming soon — a curated reading list and resource collection.</div>
+      </div>
+    </div>
+    <span class="coming-soon">Coming soon</span>
+  </div>
+  <div class="sub-inner resources-list">
     <a class="sub-btn" href="https://www.uncover.org.uk/" target="_blank" rel="noopener">
       <span class="sub-icon">🔍</span>
       <div class="sub-text">
@@ -981,42 +993,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     badge.textContent = isPast ? 'Past' : isFeatured ? 'This week' : 'Upcoming';
   });
-
-  if (!nextCard) {
-    const day = today.getDay();
-    const daysUntilThursday = (4 - day + 7) % 7 || 7;
-    nextDate = new Date(today);
-    nextDate.setDate(today.getDate() + daysUntilThursday);
-  }
-
-  if (nextDate) {
-    const ticket = document.getElementById('next-central-ticket');
-    const nextCentralAt = new Date(nextDate);
-    nextCentralAt.setHours(19, 0, 0, 0);
-
-    const updateCountdown = () => {
-      const now = new Date();
-      const diffMs = nextCentralAt - now;
-
-      if (!ticket) return;
-
-      if (diffMs <= 0) {
-        ticket.textContent = '🎫 CU Central is starting now';
-        return;
-      }
-
-      const totalMinutes = Math.floor(diffMs / 60000);
-      const days = Math.floor(totalMinutes / 1440);
-      const hours = Math.floor((totalMinutes % 1440) / 60);
-      const minutes = totalMinutes % 60;
-      const dateLabel = formatTermDate(nextCentralAt);
-
-      ticket.textContent = `🎫 Next CU Central in ${days}d ${String(hours).padStart(2, '0')}h ${String(minutes).padStart(2, '0')}m • ${dateLabel} 7:00pm`;
-    };
-
-    updateCountdown();
-    setInterval(updateCountdown, 30000);
-  }
 
   if (nextCard) {
     requestAnimationFrame(() => {
