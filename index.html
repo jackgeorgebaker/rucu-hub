@@ -216,6 +216,16 @@
 
     .sub-btn.disabled:hover { background: var(--card); }
 
+    .welcome-line {
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--text-muted);
+      text-align: center;
+      max-width: 340px;
+      margin-bottom: 2px;
+      animation: fadeUp 0.4s ease both;
+    }
+
     .sub-icon {
       font-size: 15px;
       width: 20px;
@@ -447,6 +457,7 @@
     </div>
     <div class="handle">@readingunicu</div>
     <div class="bio">A campus-wide community making the love and truth of Jesus known</div>
+    <div class="welcome-line">Whether you've just found us or you've been coming for years — everything you need is here.</div>
   </div>
 
   <!-- CU Central highlight -->
@@ -462,8 +473,8 @@
       Every Thursday night we come together for worship, talks, testimonies, games, and drinks — then head to the pub after. Everyone welcome, whatever your background or faith.
     </div>
     <div class="central-detail">
-      <div class="central-pill">🕕 6:00 prayer</div>
-      <div class="central-pill">🕖 7:00 start</div>
+      <div class="central-pill">🕕 6:00pm prayer</div>
+      <div class="central-pill">🕖 7:00pm start</div>
       <div class="central-pill">🍺 8:30 Park House</div>
     </div>
     <div class="central-ticket" id="next-central-ticket">🎫 Next CU Central</div>
@@ -525,7 +536,7 @@
       <div class="btn-icon red">🙌</div>
       <div>
         <div class="btn-label">Volunteer</div>
-        <div class="btn-sub">Volunteer for a team and get involved</div>
+        <div class="btn-sub">Opens WhatsApp and connects you with the volunteer community</div>
       </div>
     </div>
     <span class="btn-arrow">›</span>
@@ -724,27 +735,27 @@
           <div class="sub-desc">Follow for updates</div>
         </div>
       </a>
-      <a class="sub-btn" href="TODO_PASTE_SMALL_WORLD_WHATSAPP_LINK_HERE" target="_blank" rel="noopener">
+      <div class="sub-btn disabled" aria-disabled="true">
         <span class="sub-icon">💬</span>
         <div class="sub-text">
           <div class="sub-title">Small World Cafe WhatsApp</div>
-          <div class="sub-desc">Join the group chat</div>
+          <div class="sub-desc">Link coming soon</div>
         </div>
-      </a>
+      </div>
     </div>
   </div>
 
   <!-- CU Football -->
-  <a class="link-btn" href="TODO_PASTE_CU_FOOTBALL_LINK_HERE" target="_blank" rel="noopener">
+  <div class="link-btn sub-btn disabled" aria-disabled="true" style="text-decoration:none;">
     <div class="btn-left">
       <div class="btn-icon">⚽</div>
       <div>
         <div class="btn-label">CU Football</div>
-        <div class="btn-sub">Join the CU football WhatsApp group</div>
+        <div class="btn-sub">Link coming soon</div>
       </div>
     </div>
     <span class="btn-arrow">›</span>
-  </a>
+  </div>
 
   <!-- CU Resources -->
   <div class="section-label">CU Resources</div>
@@ -761,13 +772,6 @@
   </button>
   <div class="sub-wrap" id="resources">
     <div class="sub-inner">
-      <div class="sub-btn disabled" aria-disabled="true">
-        <span class="sub-icon">📚</span>
-        <div class="sub-text">
-          <div class="sub-title">CU library</div>
-          <div class="sub-desc">Coming soon</div>
-        </div>
-      </div>
       <a class="sub-btn" href="https://open.spotify.com/user/s93er7wp7xk7qdbuxtw58t2we?si=6ac954c1b25c4c30" target="_blank" rel="noopener">
         <span class="sub-icon">🎧</span>
         <div class="sub-text">
@@ -784,24 +788,21 @@
         <span class="sub-icon">⏱️</span>
         <div class="sub-text">
           <div class="sub-title">The Gospel in 2 mins</div>
-          <div class="sub-desc">https://twowaystolive.com/</div>
         </div>
       </a>
       <a class="sub-btn" href="https://www.uncover.org.uk/" target="_blank" rel="noopener">
         <span class="sub-icon">🔍</span>
         <div class="sub-text">
-          <div class="sub-title">Uncover</div>
-          <div class="sub-desc">https://www.uncover.org.uk/</div>
+          <div class="sub-title">Investigate Jesus for yourself — Uncover</div>
         </div>
       </a>
       <a class="sub-btn" href="https://resources.uccf.io/" target="_blank" rel="noopener">
         <span class="sub-icon">🧭</span>
         <div class="sub-text">
-          <div class="sub-title">Resources for a CU</div>
-          <div class="sub-desc">https://resources.uccf.io/</div>
+          <div class="sub-title">Resources for CU members — UCCF</div>
         </div>
       </a>
-      <a class="sub-btn" href="https://calendar.google.com/calendar/ical/readingunichristianunion%40gmail.com/public/basic.ics" target="_blank" rel="noopener">
+      <a class="sub-btn" href="https://calendar.google.com/calendar/u/1?cid=cmVhZGluZ3VuaWNocmlzdGlhbnVuaW9uQGdtYWlsLmNvbQ" target="_blank" rel="noopener">
         <span class="sub-icon">📅</span>
         <div class="sub-text">
           <div class="sub-title">CU Calendar</div>
